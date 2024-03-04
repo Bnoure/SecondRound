@@ -3,4 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  enum :role, { buyer: 0, seller: 1}
+  has_many :battles
+  has_many :stores
+  has_many :bookings
 end

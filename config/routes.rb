@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  get 'games/index'
+  get 'games/new'
+  get 'games/show'
+  get 'games/create'
+  get 'games/edit'
+  get 'games/update'
+  get 'games/destroy'
+  get 'bookings/index'
+  get 'bookings/new'
+  get 'bookings/show'
+  get 'bookings/create'
+  get 'stores/index'
+  get 'stores/new'
+  get 'stores/show'
+  get 'stores/create'
+  get 'battles/index'
+  get 'battles/new'
+  get 'battles/show'
+  get 'battles/create'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
