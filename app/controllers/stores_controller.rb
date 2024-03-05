@@ -1,4 +1,6 @@
 class StoresController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+
   def index
     @stores = Store.all
   end
