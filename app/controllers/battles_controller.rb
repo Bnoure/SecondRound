@@ -1,4 +1,6 @@
 class BattlesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new]
+
   def index
     @battles = Battle.where(user_id: current_user.id)
   end
