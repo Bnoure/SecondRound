@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :battles
   has_many :stores
   has_many :bookings
+  has_one_attached :picture
 end
