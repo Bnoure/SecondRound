@@ -1,0 +1,57 @@
+.wrapper {
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto); // Réduit la hauteur minimale à 50px
+  text-align: center;
+  padding: 10px;
+}
+
+.grid1 {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+}
+
+.grid2 {
+  grid-column: 3 / 4;
+  grid-row: 1 / 3;
+}
+
+.grid3 {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / 2; // Ajusté pour prendre moins de largeur
+  border: none;
+  justify-content: space-between;
+}
+.grid3-part1 {
+  padding: 10px;
+  margin-bottom: 10px; // Ajoute un espace de 10px en bas
+}
+
+.grid3-part2 {
+  padding: 10px;
+  // Ajoute un espace de 10px en bas
+}
+
+.grid5 {
+  grid-column: 2 / 4; // Ajusté pour prendre plus de largeur
+  grid-row: 3 / 4;
+}
+
+.grid1,
+.grid2,
+.grid5,
+.grid3-part1,
+.grid3-part2 {
+  box-shadow: 0px 0px 8px 0px #ffffff; // Ajoute une ombre portée tout autour
+}
+
+.grid1,
+.grid2,
+.grid3-part1,
+.grid3-part2,
+.grid5 {
+  color: white; // Met le texte en blanc
+}
