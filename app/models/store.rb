@@ -1,8 +1,8 @@
 class Store < ApplicationRecord
   belongs_to :user
-  has_many :games
+  has_many :games, dependent: :destroy
   has_one_attached :picture
-  Validates :name, presence: true
-  Validates :city, presence: true
-  Validates :address, presence: true
+  validates :name, presence: true
+  validates :city, presence: true
+  validates :address, presence: true
 end
