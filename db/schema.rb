@@ -81,11 +81,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_115206) do
     t.string "name"
     t.text "city"
     t.string "address"
-    t.time "open_hour"
-    t.time "close_hour"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "open_hour"
+    t.integer "close_hour"
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_stores_on_user_id"

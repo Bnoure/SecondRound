@@ -1,5 +1,15 @@
-<h1>Stores#index</h1>
-<p>Find me in app/views/stores/index.html.erb</p>
-
-
-<!--Tous ca c'est a mettre dans la carte de xavier après-->
+<h1>Ces Magasins proposent des jeux correspondant à votre recherche</h1>
+<div class="d-flex flex-column">
+  <%= link_to 'retour', root_path %>
+  <%@stores.each do |store|%>
+    <%= link_to store_path(store) do %>
+      <div class="card-store">
+        <img src="/assets/Starfield" />
+        <div class="card-store-infos">
+          <h2><%=store.name%></h2>
+          <p>Se trouve à <%= store.distance_to(@localisation).round %> km de vous</p>
+        </div>
+      </div>
+    <%end%>
+  <%end %>
+</div>
