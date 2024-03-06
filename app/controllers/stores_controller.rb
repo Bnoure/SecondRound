@@ -3,10 +3,8 @@ class StoresController < ApplicationController
 
   def index
     @stores = Store.all
-    @games = Game.where("title ILIKE ?", "%#{params[:query]}%") if params[:query].present?
-    @stores = @games.each do |game|
-      puts game.store
-    end
+    @stores = @stores.filter_by_game_title(params[:query]) if params[:query].present?
+    @stores = @stores.filter_by_localisation(params[:localisation]) if params[:localisation].present?
   end
 
   def new
