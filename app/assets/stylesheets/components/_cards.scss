@@ -1,0 +1,43 @@
+
+// test
+
+.card-store {
+  overflow: hidden;
+  height: 110px;
+  background: rgba( 255, 255, 255, 0.2 );
+  box-shadow: 0 8px 32px 0 rgba(66, 66, 66, 0.37);
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border-radius: 10px;
+  margin: 20px;
+  backdrop-filter: blur( 8px );
+  -webkit-backdrop-filter: blur( 8px );
+}
+
+
+
+
+.card-store img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-store h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-store p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-store .card-store-infos {
+  padding: 16px;
+}
