@@ -1,7 +1,18 @@
-body{
-  background-image: url('/assets/fond3.jpg');
+body {
+  background-image: asset_url("fond3.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   min-height: 100vh;
+  min-width: 100wh;
+  margin-bottom: 1Opx;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+p {
+  color: white;
 }

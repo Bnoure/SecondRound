@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :battles, only: [:index, :show, :new, :create]
   resources :games
 
-  resources :stores, only: [:index] do
+  resources :stores, only: [:index, :show] do
     resources :bookings
   end
 

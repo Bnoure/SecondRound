@@ -8,8 +8,8 @@ xavier = User.create!(first_name: 'Xavier', last_name: 'Lefaou', role: 0, email:
 emma = User.create!(first_name: 'Emma', last_name: 'Puget', role: 1, email: 'test3@test.com', password: 123456)
 puts '3 users created'
 
-superthor = Store.create!(name: 'superThor', city: 'Toulouse', address: '62 avenue Albert Bedouces', user_id: nour.id, open_hour: Time.parse("09:00").hour, close_hour: Time.parse("22:00").hour)
-tekkenstore = Store.create!(name: 'TekkenStore', city: 'Strasbourg', address: '3 rue Sarrelouis', user_id: emma.id, open_hour: Time.parse("08:00").hour, close_hour: Time.parse("18:00").hour )
+superthor = Store.create!(name: 'superThor', city: 'Toulouse', address: '36 chemin du vallon, Toulouse', user_id: nour.id, open_hour: 9 , close_hour: 22)
+tekkenstore = Store.create!(name: 'TekkenStore', city: 'Strasbourg', address: '3 rue Sarrelouis, Strasbourg', user_id: emma.id, open_hour: 8, close_hour: 18)
 puts '2 stores created'
 
 Game.create!(title: 'Alex kidd', category: 'plateforme', price: 16, console: 'master system', description: 'trop cool', year: 1980, condition: 'neuf', store_id: superthor.id)
