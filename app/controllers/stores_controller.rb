@@ -5,6 +5,8 @@ class StoresController < ApplicationController
     @stores = Store.all
     @stores = @stores.filter_by_game_title(params[:query]) if params[:query].present?
     @stores = @stores.filter_by_localisation(params[:localisation]) if params[:localisation].present?
+    @stores = @stores.uniq
+    @localisation = params[:localisation]
   end
 
   def new

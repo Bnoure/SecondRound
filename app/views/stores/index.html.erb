@@ -1,17 +1,15 @@
 <h1>Ces Magasins proposent des jeux correspondant à votre recherche</h1>
 <div class="d-flex flex-column">
-  <%@games.each do |game|%>
+  <%= link_to 'retour', root_path %>
+  <%@stores.each do |store|%>
     <%= link_to store_path(store) do %>
       <div class="card-store">
         <img src="/assets/Starfield" />
         <div class="card-store-infos">
-          <h2><%=game.store.name%></h2>
-          <p>Se trouve à moins de 1km</p>
-          <i class="fa-solid fa-shop"></i>
+          <h2><%=store.name%></h2>
+          <p>Se trouve à <%= store.distance_to(@localisation).round %> km de vous</p>
         </div>
       </div>
     <%end%>
   <%end %>
 </div>
-
-<!--Tous ca c'est a mettre dans la carte de xavier après-->

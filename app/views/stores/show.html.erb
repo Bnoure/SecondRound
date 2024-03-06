@@ -1,6 +1,6 @@
 <div class="store-infos">
+  <%= link_to 'retour', root_path %>
   <h1><%= @store.name %></h1>
-
   <p>Ouvert de <%= @store.open_hour.to_s %>h à <%= @store.close_hour.to_s %>h</p>
   <p><%= @store.address %></p>
 </div>
@@ -8,7 +8,6 @@
 <% @store.games.each do |game| %>
   <div class="game-card">
     <img src="/assets/Starfield" />
-      <div class="game-body">
         <div class="game-infos">
         <h2><%= game.title %></h2>
         <p><%= game.category %></p>
@@ -17,6 +16,6 @@
         <p><strong><%= game.price %></strong> € seulement</p>
     </div>
     </div>
-  </div>
 <% end %>
+  </div>
 </div>
