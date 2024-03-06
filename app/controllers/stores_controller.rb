@@ -15,6 +15,7 @@ class StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
+    @store_games = @store.games.filter_by_title(params[:query])
   end
 
   def create
