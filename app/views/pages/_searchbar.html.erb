@@ -1,0 +1,11 @@
+<div class="d-flex flex-column align-items-center">
+      <%= form_with url: stores_path, method: :get do |form| %>
+      <div class="inputGroup">
+        <%= form.text_field :query, autocomplete: "off", required: "" %>
+        <%= form.label :query, "Game's name", class: "game-title" %>
+        </div>
+      <% end %>
+  <div class="">
+    <label for="localisation"><i class="fa-solid fa-location-crosshairs ms-2 p-2"></i>Strasbourg</label>
+  </div>
+</div>
