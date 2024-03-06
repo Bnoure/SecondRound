@@ -4,6 +4,7 @@ class PagesController < ApplicationController
 
 
   def home
+    @hide_nav = true
   end
 
   def dashboard
@@ -17,5 +18,4 @@ class PagesController < ApplicationController
 
   def nour
   end
-
 end

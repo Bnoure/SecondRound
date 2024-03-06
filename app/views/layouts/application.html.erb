@@ -13,7 +13,8 @@
   <body>
 <%= render "shared/flashes" %>
     <div class="container">
-     <%= yield %>
+    <%= yield %>
     </div>
+    <%= render 'shared/navbar' unless @hide_nav  %>
   </body>
 </html>

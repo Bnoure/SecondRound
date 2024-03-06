@@ -7,4 +7,6 @@ class Game < ApplicationRecord
   validates :price, presence: true
   validates :console, presence: true
   validates :condition, presence: true
+
+  scope :filter_by_title, ->(query) { where("title ILIKE ?", "%#{query}%") }
 end
