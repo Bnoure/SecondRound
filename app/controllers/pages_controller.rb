@@ -5,6 +5,7 @@ class PagesController < ApplicationController
 
   def home
     @hide_nav = true
+    @hide_top = true
   end
 
   def dashboard
