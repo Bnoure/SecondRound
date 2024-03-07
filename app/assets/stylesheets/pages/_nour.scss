@@ -1,0 +1,38 @@
+.card-battle1,
+.card-battle2 {
+  overflow: hidden;
+  height: 170px;
+  width: 40%;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(66, 66, 66, 0.37);
+  display: flex;
+  align-items: center;
+
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: absolute;
+
+  margin-top: 20vh;
+}
+
+.card-battle2 {
+  bottom: 0;
+  right: 0;
+  margin-bottom: 20vh;
+  margin-right: 15px;
+}
+
+.button1 {
+  position: absolute;
+  right: 20%;
+  top: 25%;
+}
+
+.button2 {
+  position: absolute;
+  top: 60%;
+  left: 15%;
+}

@@ -17,5 +17,6 @@ class PagesController < ApplicationController
   end
 
   def nour
+    @hide_nav = true
   end
 end
