@@ -5,7 +5,7 @@ body {
   background-size: cover;
   min-height: 100vh;
   min-width: 100wh;
-  margin-bottom: 1Opx;
+  margin-bottom: 10px;
 }
 
 h1 {
@@ -15,4 +15,12 @@ h1 {
 
 p {
   color: white;
+}
+
+.m-b {
+  margin-bottom: 6rem;
+}
+
+.m-t {
+  margin-top: 19px;
 }
