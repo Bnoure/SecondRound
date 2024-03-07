@@ -1,15 +1,23 @@
-<div class="d-flex flex-column align-items-center">
+<div class="d-flex flex-column align-items-center" data-controller="searchbar">
   <%= form_with url: stores_path, method: :get do |form| %>
     <div class="inputGroup">
       <%= form.text_field :query, autocomplete: "off", required: "" %>
       <%= form.label :query, "Game's name", class: "game-title" %>
     </div>
-    <div class="inputGroup">
-      <%= form.text_field :localisation, autocomplete: 'off', required: "" %>
-      <%= form.label :localisation, "localisation" %>
-      <!--<label for="localisation"><i class="fa-solid fa-location-crosshairs ms-2 p-2"></i>Strasbourg</label>-->
+    <div class="d-flex align-items-center d-none" data-searchbar-target="inputLocation">
+      <div class="inputGroup">
+        <%= form.text_field :localisation, autocomplete: 'off', required: "" %>
+        <%= form.label :localisation, "localisation"%>
+        <!--<label for="localisation"><i class="fa-solid fa-location-crosshairs ms-2 p-2"></i>Strasbourg</label>-->
+      </div>
+      <div>
+        <i class="fa-solid fa-location-dot ms-3 fs-1 pt-3" data-action="click->searchbar#search"></i>
+      </div>
+    </div>
+    <div>
+      <label for="localisation" data-action="click->searchbar#inputEnable" data-searchbar-target="outputLocation"><i class="fa-solid fa-location-crosshairs ms-2 p-2" ></i>Strasbourg</label>
     </div>
 
-    <%= form.submit %>
+    <p class="d-none"><%= form.submit %></p>
   <% end %>
 </div>
