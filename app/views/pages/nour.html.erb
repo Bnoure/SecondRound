@@ -1,27 +1,51 @@
 <div class="container" data-controller="swipe">
-
   <div id="swiper1" class="swiper-container" data-swipe-target="cardBattle1">
-    <div class="swiper-wrapper">
+    <div class="swiper-wrapper1">
       <div class="swiper-slide">
-        <div class="card-container">
-          <div class="card-battle1" data-swipe-target="cardBattle1"></div>
-        </div>
-      </div>
-    </div>
-    <button data-action="click->swipe#next1"  data-swipe-target="button1" class="button1"> Swipe Right </button>
-  </div>
-
-  <div id="swiper2" class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="card-container reverse">
-          <div class="card-battle2" data-swipe-target="cardBattle2">
-            <p>Jeux</p>
+          <div class="battle-card">
+            <div class="battle-card-inner">
+              <div class="battle-card-front">
+                <img src="/assets/Starfield" />
+              </div>
+              <div class="battle-card-back">
+                <h2>Starfield</h2>
+                <p>Jeux de rôle</p>
+                <p>PS5</p>
+                <p>Neuf</p>
+                <p><strong>60</strong> € seulement</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <button data-action="click->swipe#toggleCardBattle2" class="button2"> FINISH HIM </button>
-  </div>
 
-</div>
+
+
+
+    <div id="swiper2" class="swiper-container" data-swipe-target="cardBattle2">
+    <div class="swiper-wrapper2">
+      <div class="swiper-slide">
+          <div class="battle-card">
+            <div class="battle-card-inner">
+              <div class="battle-card-front">
+                <img src="/assets/Starfield" />
+              </div>
+              <div class="battle-card-back">
+                <h2>Starfield</h2>
+                <p>Jeux de rôle</p>
+                <p>PS5</p>
+                <p>Neuf</p>
+                <p><strong>60</strong> € seulement</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
