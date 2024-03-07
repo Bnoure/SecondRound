@@ -18,6 +18,10 @@ Rails.application.routes.draw do
     resources :bookings
   end
 
+  get 'location', to: 'users#get_current_address'
+
+
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
