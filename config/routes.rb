@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'consoles/index'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -12,16 +13,16 @@ Rails.application.routes.draw do
   get 'pages/xavier'
   get 'pages/dashboard'
   resources :battles, only: [:index, :show, :new, :create]
-  resources :games
-
-  resources :stores, only: [:index, :show] do
-    resources :bookings
+  resources :games do
+    resources :bookings, only: [:create]
   end
+  resources :bookings, only: [:index, :show]
+  resources :stores, only: [:index, :show]
 
-  get 'location', to: 'users#get_current_address'
-
+ get 'location', to: 'users#get_current_address'
 
 
   # Defines the root path route ("/")
   # root "posts#index"
+
 end

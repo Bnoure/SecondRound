@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="searchbar"
 export default class extends Controller {
-  static targets = [ "inputLocation", "outputLocation", "iconLocation" ]
+  static targets = [ "inputLocation", "outputLocation", "locationDot" ]
 
   connect() {
     console.log("Hello, Stimulus!");
@@ -12,8 +12,8 @@ export default class extends Controller {
   inputEnable(event) {
     console.log("inputEnable")
     console.log(event.currentTarget)
-    this.iconLocationTarget.classList.remove("d-none");
     this.inputLocationTarget.classList.add("inputGroup");
+    this.locationDotTarget.classList.add("d-none");
   }
 
   search() {
@@ -27,7 +27,7 @@ export default class extends Controller {
     console.log(test)
     console.log(this.element)
     this.inputLocationTarget.classList.remove("inputGroup");
-    this.iconLocationTarget.classList.add("d-none");
+    this.locationDotTarget.classList.remove("d-none");
   }
 
   success(pos) {
