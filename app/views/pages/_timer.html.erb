@@ -1,1 +1,1 @@
-<p id="demo"  <%= "data-controller='timer' data-timer-limit-date-value='last_booking_date'" if last_booking_date %>%></p>
+<p id="demo" data-controller="timer" data-timer-limit-date-value="<%= last_booking_date.strftime("%a, %d %b %Y") %>"></p>

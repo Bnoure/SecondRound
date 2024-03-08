@@ -11,6 +11,6 @@ class User < ApplicationRecord
 
 
   def last_booking
-    self.bookings.where("date < ?", Date.today).order(date: :desc).limit(1)
+    bookings.where("date > ?", Date.today).first
   end
 end
