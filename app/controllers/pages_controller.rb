@@ -1,11 +1,12 @@
 class PagesController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [ :home, :dashboard, :emma, :xavier, :nour]
+  skip_before_action :authenticate_user!, only: [  :dashboard, :emma, :xavier, :nour]
 
 
   def home
     @hide_nav = true
     @hide_top = true
+    @last_booking_date = current_user.last_booking&.date
   end
 
   def dashboard

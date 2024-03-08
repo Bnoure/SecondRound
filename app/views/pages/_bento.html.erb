@@ -23,6 +23,7 @@
         <%= link_to root_path, class: "my-btn" do %>
           <div class="child1">
             <%= image_tag "reservation.png", alt: "reservation.png", class: "img-fluid", style: "width: 30%;" %>
+            <%= render 'timer',last_booking_date: @last_booking_date %>
           </div>
         <% end %>
         <%= link_to root_path, class: "my-btn" do %>
