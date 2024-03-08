@@ -13,17 +13,13 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    if @booking.save!
-      redirect_to bookings_path
+    @booking = Booking.new(game_id: params[:game_id])
+    @booking.user = current_user
+    if @booking.save
+      redirect_to booking_path(@booking)
     else
-      render :new
+      render 'games/show', status: :unprocessable_entity
     end
   end
 
-  private
-
-  def booking_params
-    params.require(:booking).permit(:user_id, :game_id, :date, :status)
-  end
 end
