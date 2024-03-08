@@ -3,29 +3,35 @@ import Swing from "swing";
 
 // Connects to data-controller="swipe"
 export default class extends Controller {
+  static targets = ["cardBattle1", "cardBattle2"];
 
   connect() {
-    this.stack = Swing.Stack();
-    this.cardElements = this.element.querySelectorAll('.battle-card');
+    this.initializeSwing(this.cardBattle1Target);
+    this.initializeSwing(this.cardBattle2Target);
+  }
 
-    this.cardElements.forEach((cardElement) => {
-      var card = this.stack.createCard(cardElement);
+  initializeSwing(container) {
+    const stack = Swing.Stack();
+    const cardElements = container.querySelectorAll('.battle-card');
 
-      this.stack.on('dragstart', (e) => {
+    cardElements.forEach((cardElement) => {
+      let count  = 0
+      let card = stack.createCard(cardElement);
+
+      stack.on('dragstart', (e) => {
         this.throwOutConfidenceElement = e.target.querySelector('.no').style;
       });
 
-      this.stack.on('dragmove', (e) => {
+      stack.on('dragmove', (e) => {
         this.throwOutConfidenceElement.opacity = e.throwOutConfidence;
       });
 
-      this.stack.on('dragend', (e) => {
+      stack.on('dragend', (e) => {
         if (e.throwOutConfidence != 1) {
           this.throwOutConfidenceElement.opacity = 0;
         }
+        if(count == 5)
       });
     });
   }
-
-
 }
