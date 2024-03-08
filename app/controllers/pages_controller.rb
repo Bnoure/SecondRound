@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   def home
     @hide_nav = true
     @hide_top = true
-    @last_booking_date = current_user.last_booking&.date
+    @last_booking_date = current_user.last_booking&.limit_date
   end
 
   def dashboard
