@@ -6,7 +6,7 @@
   color: white;
 }
 
-.inputGroup input {
+.inputGroup input, .inputGroup select {
   font-size: 100%;
   padding: 0.8em;
   outline: none;
@@ -15,7 +15,12 @@
   border-radius: 20px;
   width: 100%;
   color: white;
+  option {
+    color: black;
+  }
 }
+
+
 
 .inputGroup label {
   font-size: 100%;

@@ -4,7 +4,7 @@ class StoresController < ApplicationController
   def index
     @stores = Store.all
     @stores = @stores.filter_by_game_title(params[:query]) if params[:query].present?
-    @stores = @stores.filter_by_console(params[:console]) if params[:console].present?
+    @stores = @stores.filter_by_console(params[:console_id]) if params[:console_id].present?
     @stores = @stores.filter_by_localisation(params[:localisation]) if params[:localisation].present?
     @stores = @stores.uniq
     @localisation = params[:localisation]
