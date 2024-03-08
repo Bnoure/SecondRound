@@ -1,2 +1,22 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<div class="container">
+<h1 class="text-light"><%= @game.title %></h1>
+<div class="d-flex justify-content-center mt-4 ">
+<%= image_tag('https://image.jeuxvideo.com/images/p3/s/o/soc4p30f.jpg', class: "card-img-top") %>
+</div>
+<div class="game-card ">
+<div class="game-infos" >
+<p><%= @game.category %></p>
+<p><%= @game.console %></p>
+<p><%= @game.condition %></p>
+<p><%= @game.description %></p>
+<p><strong><%= @game.price %></strong> € seulement</p>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="container-fluid d-flex justify-content-between">
+<%= link_to "A",  game_bookings_path(@game),  class: "xbtn-a", data: {
+  turbo_method: :post,} %>
+<%= link_to "B", store_path(@game.store), class: "xbtn-b" %>
+</div>
+</div>

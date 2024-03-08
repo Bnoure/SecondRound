@@ -10,5 +10,6 @@ class Store < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   scope :filter_by_game_title, ->(query) { joins(:games).where("games.title ILIKE ?", "%#{query}%") }
-  scope :filter_by_localisation, ->(localisation) { near(localisation) }
+  scope :filter_by_console, ->(console) { joins(:games).where("games.console ILIKE ?", console.to_s) }
+  scope :filter_by_localisation, ->(localisation) { near(localisation, 50) }
 end

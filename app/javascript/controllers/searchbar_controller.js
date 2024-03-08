@@ -2,17 +2,18 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="searchbar"
 export default class extends Controller {
-  static targets = [ "inputLocation", "outputLocation" ]
+  static targets = [ "inputLocation", "outputLocation", "iconLocation" ]
 
   connect() {
-    console.log("Hello, Stimulus!")
+    console.log("Hello, Stimulus!");
+    this.search()
   }
 
-  inputEnable() {
+  inputEnable(event) {
     console.log("inputEnable")
     console.log(event.currentTarget)
-    event.currentTarget.classList.add("d-none")
-    this.inputLocationTarget.classList.remove("d-none")
+    this.iconLocationTarget.classList.remove("d-none");
+    this.inputLocationTarget.classList.add("inputGroup");
   }
 
   search() {
@@ -24,9 +25,9 @@ export default class extends Controller {
     console.log("search")
     const test = navigator.geolocation.getCurrentPosition(this.success.bind(this), this.error, options);
     console.log(test)
-    this.inputLocationTarget.classList.add("d-none")
-    this.outputLocationTarget.classList.remove("d-none")
     console.log(this.element)
+    this.inputLocationTarget.classList.remove("inputGroup");
+    this.iconLocationTarget.classList.add("d-none");
   }
 
   success(pos) {
@@ -39,7 +40,8 @@ export default class extends Controller {
     .then(response => response.json())
     .then((data) => {
       console.log(data);
-      address = data.final_address;
+      const address = data.final_address;
+      this.outputLocationTarget.value = address;
     });
     // redirect with coordinates in params
     // location.assign(`/locations/?place=${crd.latitude},${crd.longitude}`)

@@ -1,2 +1,8 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<h1 class="text-light"><%= @booking.game.title %></h1>
+
+<div class="container">
+  <div class="container-fluid d-flex justify-content-between">
+    <p>Votre Reservation à bien été effectuée</p>
+    <p>Vous avez jusqu'a <%= @booking.date %> pour venir le récupérer ici : <%= @booking.game.store.address %></p>
+</div>>
+</div>>

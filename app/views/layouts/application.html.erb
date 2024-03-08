@@ -11,8 +11,9 @@
   </head>
 
   <body>
-<%= render "shared/flashes" %>
-    <div class="container">
+    <%= render 'shared/top' unless @hide_top %>
+  <%= render "shared/flashes" %>
+    <div class="container m-b">
     <%= yield %>
     </div>
     <%= render 'shared/navbar' unless @hide_nav  %>

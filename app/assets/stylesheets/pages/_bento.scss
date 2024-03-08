@@ -23,7 +23,7 @@
   box-shadow: 0 8px 32px 0 rgba(66, 66, 66, 0.5);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  height: 27vh;
+  height: 195px;
   display: flex;
   align-items: center;
   text-align: center;
@@ -50,7 +50,7 @@
   display: inline-grid;
   height: min-content;
   /* justify-content: space-between; */
-  grid-row-gap: inherit;
+  grid-row-gap: 14px;
 }
 
 .child1,

@@ -10,41 +10,4 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
-
-.game-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: 200px;
-  border: 1px solid black;
-  border-radius: 18px;
-  margin: 2vh;
-}
-
-.game-card-img {
-  width: 100%;
-  height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  object-fit: cover;
-  max-width: auto;
-  max-height: auto;
-  object-fit: fill;
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
-}
-
-.game-infos {
-  font-size: 0.5em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 50%;
-  padding: 5px;
-}
+@import "swiper/swiper-bundle.min.css";
