@@ -12,12 +12,11 @@ Rails.application.routes.draw do
   get 'pages/xavier'
   get 'pages/dashboard'
   resources :battles, only: [:index, :show, :new, :create]
-  resources :games
-
-  resources :stores, only: [:index, :show] do
-    resources :bookings
+  resources :games do
+    resources :bookings, only: [:create]
   end
+  resources :bookings, only: [:index, :show]
+  resources :stores, only: [:index, :show]
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+
 end
