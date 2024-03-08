@@ -3,29 +3,47 @@ import Swing from "swing";
 
 // Connects to data-controller="swipe"
 export default class extends Controller {
+  static targets = ["cardBattle1", "cardBattle2"];
 
   connect() {
-    this.stack = Swing.Stack();
-    this.cardElements = this.element.querySelectorAll('.battle-card');
+    this.initializeSwing(this.cardBattle1Targets);
+    this.initializeSwing(this.cardBattle2Targets);
+  }
 
-    this.cardElements.forEach((cardElement) => {
-      var card = this.stack.createCard(cardElement);
+  initializeSwing(cardElements) {
+    const config = {
+      allowedDirections: [Swing.Direction.LEFT],
+      throwOutConfidence: (yOffset, element) => {
+        const yConfidence = Math.min(Math.abs(yOffset) / element.offsetHeight, 1);
+        return Math.max(yConfidence);
+      },
+    };
+    const stack = Swing.Stack(config);
 
-      this.stack.on('dragstart', (e) => {
-        this.throwOutConfidenceElement = e.target.querySelector('.no').style;
-      });
+    cardElements.forEach((cardElement) => {
+      let count  = 0
+      let card = stack.createCard(cardElement);
 
-      this.stack.on('dragmove', (e) => {
-        this.throwOutConfidenceElement.opacity = e.throwOutConfidence;
-      });
+      // stack.on('dragstart', (e) => {
+      //   this.throwOutConfidenceElement = e.target
+      // });
 
-      this.stack.on('dragend', (e) => {
-        if (e.throwOutConfidence != 1) {
-          this.throwOutConfidenceElement.opacity = 0;
-        }
+      // stack.on('dragmove', (e) => {
+
+      //   this.throwOutConfidenceElement.style.opacity = e.throwOutConfidence;
+      // });
+
+      // stack.on('dragend', (e) => {
+      //   if (e.throwOutConfidence != 1) {
+      //     this.throwOutConfidenceElement.classList.add("d-none");
+      //   }
+      // });
+      stack.on('throwoutleft', (e) => {
+        this.throwOutConfidenceElement = e.target
+        this.throwOutConfidenceElement.style.opacity = e.throwOutConfidence;
+        this.throwOutConfidenceElement.classList.add("d-none");
+        console.log('Card has been swiped to the left');
       });
     });
   }
-
-
 }
