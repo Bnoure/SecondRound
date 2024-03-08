@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_06_115206) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_08_113531) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,6 +63,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_115206) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "consoles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.string "category"
@@ -74,6 +80,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_115206) do
     t.bigint "store_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "console_id"
+    t.index ["console_id"], name: "index_games_on_console_id"
     t.index ["store_id"], name: "index_games_on_store_id"
   end
 
@@ -84,10 +92,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_115206) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "open_hour"
-    t.integer "close_hour"
     t.float "latitude"
     t.float "longitude"
+    t.integer "open_hour"
+    t.integer "close_hour"
     t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
@@ -112,6 +120,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_115206) do
   add_foreign_key "battles", "users"
   add_foreign_key "bookings", "games"
   add_foreign_key "bookings", "users"
+  add_foreign_key "games", "consoles"
   add_foreign_key "games", "stores"
   add_foreign_key "stores", "users"
 end
