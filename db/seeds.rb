@@ -14,8 +14,6 @@ tekkenstore = Store.create!(name: 'TekkenStore', city: 'Strasbourg', address: '3
 storetoulouse = Store.create!(name: 'StoreToulouse', city: 'Toulouse', address: '8 impasse Bonnet, Toulouse ', user_id: nour.id, open_hour: 8, close_hour: 18)
 puts '3 stores created'
 
-
-
 url = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Playstation_logo_colour.svg/201px-Playstation_logo_colour.svg.png"
 file =  URI.open(url)
 
@@ -84,16 +82,16 @@ puts '7 consoles created'
 
 
 
-Game.create!(title: 'Alex kidd', category: 'plateforme', price: 16, console: master_system, description: 'trop cool', year: 1980, condition: 'neuf', store_id: superthor.id)
-Game.create!(title: 'Tekken 3', category: 'combat', price: 13, console: ps1, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1998, condition: 'vieux', store_id: superthor.id)
-Game.create!(title: 'Rocket league', category: 'course', price: 56, console: switch, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: superthor.id)
-Game.create!(title: 'Dark soul', category: 'plateforme', price: 16, console: master_system, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: superthor.id)
-Game.create!(title: 'Fonal fantasy', category: 'plateforme', price: 16, console: master_system, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: superthor.id)
-Game.create!(title: 'Minecraft', category: 'plateforme', price: 16, console: master_system, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: superthor.id)
-Game.create!(title: 'Pokemon', category: 'plateforme', price: 16, console: master_system, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: tekkenstore.id)
-Game.create!(title: 'Soul calibur', category: 'plateforme', price: 16, console: master_system, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: tekkenstore.id)
-Game.create!(title: 'Barbie', category: 'plateforme', price: 16, console: master_system, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: tekkenstore.id)
-Game.create!(title: 'Animal crossing', category: 'plateforme', price: 16, console: master_system, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: tekkenstore.id)
-Game.create!(title: 'ninten dogs', category: 'plateforme', price: 16, console: master_system, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: tekkenstore.id)
-Game.create!(title: 'Mario kart', category: 'plateforme', price: 16, console: ds, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: storetoulouse.id)
+Game.create!(title: 'Alex kidd', category: 'Plateforme', price: 16, console: master_system, description: 'trop cool', year: 1980, condition: 'neuf', store_id: superthor.id)
+Game.create!(title: 'Tekken 3', category: 'Parking', price: 13, console: ps1, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1998, condition: 'vieux', store_id: superthor.id)
+Game.create!(title: 'Rocket league', category: 'Course', price: 15, console: switch, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: superthor.id)
+Game.create!(title: 'Dark soul', category: 'Jeu de bonhomme', price: 136, console: xbox, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: superthor.id)
+Game.create!(title: 'Final fantasy', category: 'RPG', price: 257, console: xbox, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: superthor.id)
+Game.create!(title: 'Minecraft', category: 'Aventure cubique', price: 25, console: gameboy_color, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: superthor.id)
+Game.create!(title: 'Pokemon', category: 'Aventure', price: 23, console: ds, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: tekkenstore.id)
+Game.create!(title: 'Soul calibur', category: 'Bagarre', price: 87, console: gamecube, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: tekkenstore.id)
+Game.create!(title: 'Barbie fait la vaisselle', category: 'simlutaion réaliste', price: 55, console: switch, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: tekkenstore.id)
+Game.create!(title: 'Animal crossing', category: 'jeu de meufs', price: 23, console: switch, description: 'Meilleur jeu ever', year: 1980, condition: 'neuf', store_id: tekkenstore.id)
+Game.create!(title: 'ninten dogs', category: 'Jeu', price: 56, console: master_system, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: tekkenstore.id)
+Game.create!(title: 'Mario kart', category: 'Course', price: 32, console: ds, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: storetoulouse.id)
 puts '12 games created'
