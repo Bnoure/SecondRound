@@ -18,5 +18,10 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :show]
   resources :stores, only: [:index, :show]
 
+ get 'location', to: 'users#get_current_address'
+
+
+  # Defines the root path route ("/")
+  # root "posts#index"
 
 end
