@@ -79,12 +79,9 @@ gamecube.picture.attach(io: file, filename: "Game_cube.jpg", content_type: "imag
 
 puts '7 consoles created'
 
-
-
-
-Game.create!(title: 'Alex kidd', category: 'Plateforme', price: 16, console: master_system, description: 'trop cool', year: 1980, condition: 'neuf', store_id: superthor.id)
+alex = Game.create!(title: 'Alex kidd', category: 'Plateforme', price: 16, console: master_system, description: 'trop cool', year: 1980, condition: 'neuf', store_id: superthor.id)
 Game.create!(title: 'Tekken 3', category: 'Parking', price: 13, console: ps1, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1998, condition: 'vieux', store_id: superthor.id)
-Game.create!(title: 'Rocket league', category: 'Course', price: 15, console: switch, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: superthor.id)
+Game.create!(title: 'Rocket league', category: 'Course', price: 15, console: switch, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: superthor.id)
 Game.create!(title: 'Dark soul', category: 'Jeu de bonhomme', price: 136, console: xbox, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: superthor.id)
 Game.create!(title: 'Final fantasy', category: 'RPG', price: 257, console: xbox, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: superthor.id)
 Game.create!(title: 'Minecraft', category: 'Aventure cubique', price: 25, console: gameboy_color, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', year: 1980, condition: 'neuf', store_id: superthor.id)
