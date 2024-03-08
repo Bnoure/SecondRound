@@ -1,9 +1,6 @@
-
-
-
 <div class="container" data-controller="swipe">
   <% @first_games.each do |first_game| %>
-    <div id="swiper1" class="swiper-container" data-swipe-target="cardBattle1">
+    <div id="swiper1" class="swiper-container" data-swipe-target="cardsBattle1">
       <div class="swiper-wrapper1">
         <div class="swiper-slide">
           <%= render 'shared/card_battle', game: first_game %>

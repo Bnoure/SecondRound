@@ -8,4 +8,9 @@ class User < ApplicationRecord
   has_many :stores, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_one_attached :picture
+
+
+  def last_booking
+    bookings.where("limit_date > ?", Date.today).last
+  end
 end
