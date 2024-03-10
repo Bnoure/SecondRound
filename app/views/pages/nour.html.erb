@@ -1,24 +1,21 @@
-
-
-
 <div class="container" data-controller="swipe">
-  <% @first_games.each do |first_game| %>
-    <div id="swiper1" class="swiper-container" data-swipe-target="cardBattle1">
-      <div class="swiper-wrapper1">
+  <div class="set1 swiper-container" data-swipe-target="cardBattle1">
+    <div class="swiper-wrapper">
+      <% @first_games.each do |first_game| %>
         <div class="swiper-slide">
-          <%= render 'shared/card_battle', game: first_game %>
+          <%= render 'shared/card_battle', game: first_game, swipe_target: "cardBattle1" %>
         </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 
-  <% @second_games.each do |second_game| %>
-    <div id="swiper2" class="swiper-container" data-swipe-target="cardBattle2">
-      <div class="swiper-wrapper2">
+  <div class="set2 swiper-container" data-swipe-target="cardBattle2">
+    <div class="swiper-wrapper">
+      <% @second_games.each do |second_game| %>
         <div class="swiper-slide">
-          <%= render 'shared/card_battle', game: second_game %>
+          <%= render 'shared/card_battle', game: second_game, swipe_target: "cardBattle2" %>
         </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

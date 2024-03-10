@@ -4,8 +4,8 @@
   overflow: hidden;
   height: 110px;
   background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(66, 66, 66, 0.37);
-  display: flex;
+  /*  box-shadow: 0 8px 32px 0 rgba(66, 66, 66, 0.37);
+  display: flex; */
   align-items: center;
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -64,7 +64,7 @@
   transform-style: preserve-3d;
 }
 
-.battle-card:hover .battle-card-inner {
+.battle-card .battle-card-inner.is-flipped {
   transform: rotateY(180deg);
 }
 
@@ -128,4 +128,24 @@
   height: 200px;
   object-fit: cover;
   border-radius: 16px;
+}
+
+.flip-button {
+  width: 150px;
+  padding: 10px;
+  text-align: center;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background-color 0.3s;
+}
+
+.flip-button:hover {
+  background-color: #45a049;
 }
