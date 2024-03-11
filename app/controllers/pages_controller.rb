@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def home
     @hide_nav = true
-
+    @user = current_user
     @last_booking_date = current_user.last_booking&.limit_date
   end
 
