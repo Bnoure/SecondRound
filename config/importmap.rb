@@ -17,3 +17,4 @@ pin "raf" # @3.4.1
 pin "rebound" # @0.0.13
 pin "sister" # @3.0.2
 pin "vendor-prefix" # @0.1.0
+pin "mapbox-gl" # @3.1.2
