@@ -1,4 +1,4 @@
-<h1 class="text-light retro-title text-center">Ces Magasins proposent des jeux correspondant à votre recherche : "<%= params[:query] %>"</h1>
+<h1 class="text-light retro-title text-center">Ces Magasins <br>proposent des jeux <br> correspondant à votre recherche : <br> "<span class="text-strong"><%= params[:query] %></span>"</h1>
 <div class="d-flex flex-column">
   <%@stores.each do |store|%>
     <span class="tdn">
@@ -7,7 +7,7 @@
         <%= cl_image_tag store.picture.key, class: "store-photo" %>
         <div class="card-store-infos">
           <h2><%=store.name%></h2>
-          <p>Se trouve à <%= store.distance_to(@localisation).round %> km de vous</p>
+          <p>Se trouve à <span class="text-strong"><%= store.distance_to(@localisation).round %> km</span> de vous</p>
         </div>
       </div>
       </span>
