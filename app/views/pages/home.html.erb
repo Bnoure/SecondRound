@@ -1,12 +1,5 @@
-
-<div id="description">
-    <div class="row">
-      <%= render 'shared/description' %>
-<!--    <div class="col-md-8">-->
-      <!--% <img src="path_to_image" alt="Description image" class="img-fluid"> %>-->
-<!--    </div>-->
-  </div>
-</div>
-
-<%= render 'searchbar' %>
-<%= render 'bento' %>
+<% if current_user.seller? %>
+  <%= render 'seller_home' %>
+<% else %>
+  <%= render 'user_home' %>
+<% end %>

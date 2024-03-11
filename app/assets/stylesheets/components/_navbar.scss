@@ -10,9 +10,9 @@
   justify-content: space-around;
   align-items: center;
   z-index: 100;
-  position: fixed;
+  position: sticky;
   bottom: 28px;
-  right: 100px;
+  left: 25%;
   width: 50%;
   height: 60px;
   background-color: rgba(171, 171, 171, 0.24);
