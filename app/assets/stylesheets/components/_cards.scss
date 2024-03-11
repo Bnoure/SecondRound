@@ -4,8 +4,8 @@
   overflow: hidden;
   height: 110px;
   background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(66, 66, 66, 0.37);
-  display: flex;
+  /*  box-shadow: 0 8px 32px 0 rgba(66, 66, 66, 0.37);
+  display: flex; */
   align-items: center;
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -65,7 +65,7 @@
   transform-style: preserve-3d;
 }
 
-.battle-card:hover .battle-card-inner {
+.battle-card .battle-card-inner.is-flipped {
   transform: rotateY(180deg);
 }
 
@@ -131,6 +131,8 @@
   border-radius: 16px;
 }
 
+
+
 .text-strong {
   color: red;
   font-weight: bolder;
@@ -145,4 +147,5 @@
 
 .console-photo {
   width: 50px;
+
 }
