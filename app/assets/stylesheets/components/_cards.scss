@@ -27,12 +27,13 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  letter-spacing: 2px;
 }
 
 .card-store p {
   font-size: 16px;
   line-height: 1.4;
-  opacity: 0.7;
+  opacity: 0.9;
   margin-bottom: 0;
   margin-top: 8px;
 }
@@ -128,4 +129,20 @@
   height: 200px;
   object-fit: cover;
   border-radius: 16px;
+}
+
+.text-strong {
+  color: red;
+  font-weight: bolder;
+}
+
+.select {
+  margin-bottom: 500px !important;
+}
+
+// photos styles
+
+
+.console-photo {
+  width: 50px;
 }

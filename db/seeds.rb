@@ -122,7 +122,7 @@ puts 'Creating games...'
 
 url = "https://image.jeuxvideo.com/medias-sm/162314/1623141873-7316-jaquette-avant.jpg"
 file = URI.open(url)
-alex = Game.create!(title: 'Alex kidd in miracle world DX', category: 'Plateforme', price: 16, console: switch , description: 'trop cool', year: 2021, condition: 'neuf', store_id: superthor.id)
+alex = Game.create!(title: 'Alex kidd in miracle world DX', category: 'Plateforme', price: 16, console: switch , description: "Alex Kidd revient ici avec Alex Kidd in Miracle World DX, une nouvelle version du jeu de plateforme en sorti en 1986. Ce nouveau titre apportera de nouveaux graphismes, des niveaux inédits ainsi que des modes de jeu spéciaux pour l'occasion..", year: 2021, condition: 'neuf', store_id: superthor.id)
 alex.picture.purge if alex.picture.attached?
 alex.picture.attach(io: file, filename: "alex.jpg", content_type: "image/jpg")
 
