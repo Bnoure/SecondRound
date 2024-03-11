@@ -1,14 +1,15 @@
-<div class="battle-card">
+<div class="battle-card" data-swipe-target="<%= swipe_target %>">
   <div class="battle-card-inner">
     <div class="battle-card-front">
       <img src="/assets/Starfield" />
     </div>
     <div class="battle-card-back">
       <h2><%= game.title %></h2>
-      <p><%= game.category %>/p>
+      <p><%= game.category %></p>
       <p><%= game.console %></p>
       <p><%= game.condition %></p>
-      <p><strong><%= game.price %><</strong> € seulement</p>
+      <p><strong><%= game.price %></strong> € seulement</p>
     </div>
   </div>
+  <button class="flip-button" data-action="click->swipe#flipCard">Show Details</button>
 </div>

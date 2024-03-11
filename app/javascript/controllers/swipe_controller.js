@@ -1,49 +1,62 @@
 import { Controller } from "@hotwired/stimulus";
-import Swing from "swing";
+import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
+
+/* import Swing from "swing"; */
 
 // Connects to data-controller="swipe"
 export default class extends Controller {
-  static targets = ["cardBattle1", "cardBattle2"];
+  static targets = ["cardBattle1", "cardBattle2", "button"];
 
   connect() {
-    this.initializeSwing(this.cardBattle1Targets);
-    this.initializeSwing(this.cardBattle2Targets);
+    setTimeout(() => this.initializeSwiper1(), 0);
+    setTimeout(() => this.initializeSwiper2(), 0);
   }
 
-  initializeSwing(cardElements) {
-    const config = {
-      allowedDirections: [Swing.Direction.LEFT],
-      throwOutConfidence: (yOffset, element) => {
-        const yConfidence = Math.min(Math.abs(yOffset) / element.offsetHeight, 1);
-        return Math.max(yConfidence);
-      },
-    };
-    const stack = Swing.Stack(config);
 
-    cardElements.forEach((cardElement) => {
-      let count  = 0
-      let card = stack.createCard(cardElement);
-
-      // stack.on('dragstart', (e) => {
-      //   this.throwOutConfidenceElement = e.target
-      // });
-
-      // stack.on('dragmove', (e) => {
-
-      //   this.throwOutConfidenceElement.style.opacity = e.throwOutConfidence;
-      // });
-
-      // stack.on('dragend', (e) => {
-      //   if (e.throwOutConfidence != 1) {
-      //     this.throwOutConfidenceElement.classList.add("d-none");
-      //   }
-      // });
-      stack.on('throwoutleft', (e) => {
-        this.throwOutConfidenceElement = e.target
-        this.throwOutConfidenceElement.style.opacity = e.throwOutConfidence;
-        this.throwOutConfidenceElement.classList.add("d-none");
-        console.log('Card has been swiped to the left');
+  initializeSwiper1() {
+    this.cardBattle1Targets.forEach((element) => {
+      new Swiper(element, {
+        direction: 'horizontal',
+        allowSlideNext: true,
+        speed: 200,
+        simulateTouch: true, // Permet le swipe avec la souris
+        touchStartPreventDefault: false, // Permet de commencer à swiper sans avoir à cliquer d'abord
+        on: {
+          slideChange: function () {
+            console.log('slide changed');
+          },
+        },
       });
     });
+  }
+
+  initializeSwiper2() {
+    this.cardBattle2Targets.forEach((element) => {
+      const swiper = new Swiper(element, {
+        direction: 'horizontal',
+        allowSlideNext: true,
+
+        speed: 200,
+        simulateTouch: true, // Permet le swipe avec la souris
+        touchStartPreventDefault: false, // Permet de commencer à swiper sans avoir à cliquer d'abord
+        on: {
+          slideChange: function () {
+            console.log('slide changed to index:');
+          },
+        },
+      });
+    });
+  }
+
+  flipCard(event) {
+    const card = event.target.closest('.battle-card');
+    const cardInner = card.querySelector('.battle-card-inner');
+    cardInner.classList.toggle('is-flipped');
+    const button = card.querySelector('.flip-button');
+    if (cardInner.classList.contains('is-flipped')) {
+      button.textContent = 'Hide Details';
+    } else {
+      button.textContent = 'Show Details';
+    }
   }
 }
