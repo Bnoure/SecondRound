@@ -27,12 +27,13 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  letter-spacing: 2px;
 }
 
 .card-store p {
   font-size: 16px;
   line-height: 1.4;
-  opacity: 0.7;
+  opacity: 0.9;
   margin-bottom: 0;
   margin-top: 8px;
 }
@@ -130,22 +131,21 @@
   border-radius: 16px;
 }
 
-.flip-button {
-  width: 150px;
-  padding: 10px;
-  text-align: center;
-  border: none;
-  background-color: #4caf50;
-  color: white;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 12px;
-  transition: background-color 0.3s;
+
+
+.text-strong {
+  color: red;
+  font-weight: bolder;
 }
 
-.flip-button:hover {
-  background-color: #45a049;
+.select {
+  margin-bottom: 500px !important;
+}
+
+// photos styles
+
+
+.console-photo {
+  width: 50px;
+
 }

@@ -1,11 +1,12 @@
 body {
-  background-image: asset_url("fond3.jpg");
+  background-image: url("https://static.vecteezy.com/system/resources/previews/030/314/151/large_2x/abstract-hexagon-grid-with-bright-futuristic-colors-vertical-mobile-wallpaper-ai-generated-free-photo.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  backdrop-filter: brightness(0.5);
   min-height: 100vh;
   min-width: 100wh;
-  margin-bottom: 10px;
+  margin-bottom: 100px;
 }
 
 h1 {

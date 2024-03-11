@@ -7,11 +7,11 @@
 <% @store_games.each do |game| %>
 <span class="tdn">
   <%= link_to game_path(game) do %>
-  <div class="game-card mb-5">
+  <div class="game-card mb">
     <%=  cl_image_tag game.picture.key, class: "game-photo" %>
         <div class="game-infos">
         <h2><%= game.title %></h2>
-        <p><%= game.console.name %></p>
+        <p><%= cl_image_tag game.console.picture.key, class: "console-photo"%></p>
         <p><strong><%= game.price %></strong> €</p>
     </div>
     </div>
