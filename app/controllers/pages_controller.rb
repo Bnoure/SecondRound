@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [  :dashboard, :emma, :xavier, :nour,:noure]
+  skip_before_action :authenticate_user!, only: [:dashboard, :emma, :xavier, :nour,:noure]
 
 
   def home
@@ -19,8 +19,8 @@ class PagesController < ApplicationController
   end
 
   def noure
-
-    @background_image = Dir.glob("app/assets/images/background/*").sample.sub('app/assets/images/', '')
+    @fight_page = true
+    # @background_image = Dir.glob("app/assets/images/background/*").sample.sub('app/assets/images/', '')
     @hide_nav = true
     @first_games = Game.all.sample(5)
     @second_games = Game.where.not(id: @first_games).sample(5)

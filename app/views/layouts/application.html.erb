@@ -11,9 +11,10 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="<%= @fight_page ? "body2": "body1" %>">
+
     <%= render 'shared/top' unless @hide_top %>
-  <%= render "shared/flashes" %>
+    <%= render "shared/flashes" %>
     <div class="container m-b">
     <%= yield %>
     </div>

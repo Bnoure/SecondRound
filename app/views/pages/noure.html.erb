@@ -1,16 +1,6 @@
 
-<style>
-body {
-  background: url(<%= asset_path @background_image %>) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-</style>
-
 <div class="test-container" data-controller="flip" >
-<button class= "xbtn-b">  FINSIH HIM </button>
+  <button class= "xbtn-b">  FINSIH HIM </button>
   <div class="swiper-container" data-flip-target="swiper1" data-flip-games1="<%= @first_games.map(&:id).join(',') %>">
     <div class="swiper-wrapper">
 
@@ -22,6 +12,8 @@ body {
     </div>
   </div>
 
+
+  <img src="<%= asset_path 'background/TextStudio Animated VS.gif' %>" alt="VS" style ="height: 77px">
   <div class="swiper-container" data-flip-target="swiper2" , data-flip-games2="<%= @second_games.map(&:id).join(',') %>">
     <div class="swiper-wrapper">
 
@@ -32,10 +24,11 @@ body {
       <% end %>
     </div>
   </div>
-<button class= "xbtn-b">  FINSIH HIM </button>
-</div>
-
-<div id="game-modal" class="game-modal">
-  <h1 id="game-modal-title" class="game-modal-title"></h1>
-  <img id="game-modal-image" src="" alt="Game image" class="game-modal-image">
+  <button class= "xbtn-b">  FINSIH HIM </button>
+  <div id="game-modal" class="game-modal">
+    <img id="game-modal-image" src="" alt="Game image" class="game-modal-image">
+    <h1 id="game-modal-title" class="game-modal-title"></h1>
+    <%= link_to "Coucou", "", data: { flip_target: "link" } %>
+  </div>
+  <div id="modal-backdrop"></div>
 </div>

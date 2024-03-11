@@ -3,10 +3,12 @@ import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs
 
 export default class extends Controller {
 
-  static targets = ["swiper1", "swiper2", "card"];
+  static targets = ["swiper1", "swiper2", "card", "link"];
   clickCount = 0;
 
   connect() {
+
+    console.log(this.linkTarget)
     console.log(Swiper)
 
     const games1 = this.swiper1Target.dataset.flipGames1.split(',').map(Number)
@@ -33,7 +35,7 @@ export default class extends Controller {
 
   showWinner() {
     // Trouver le dernier jeu restant et afficher une pop-up
-    const lastGame = this.cardTargets[0];
+    const lastGame = this.cardTargets[this.cardTargets.length - 1];
     if (lastGame) {
       const gameName = lastGame.dataset.gameName;
       const gameImage = lastGame.querySelector('img').src;
@@ -44,6 +46,9 @@ export default class extends Controller {
 
       // Montrer le modal
       document.getElementById('game-modal').style.display = 'block';
+      document.getElementById('modal-backdrop').style.display = 'block';
+
+      this.linkTarget.href =`/stores/?game_name=${gameName}`;
     }
   }
 }
