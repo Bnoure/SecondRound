@@ -1,2 +1,13 @@
-<h1>Battles#new</h1>
-<p>Find me in app/views/battles/new.html.erb</p>
+
+
+<%= simple_form_for @battle do |f| %>
+<%= f.input :console_id,
+            as: :radio_buttons,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper',
+            item_wrapper_class: 'category-item',
+            input_html: {class: 'category-selector'},
+            collection: Console.all,
+            :label_method => lambda { |b| "#{cl_image_tag(b.picture.key, width: 50)} #{b.name}".html_safe } %>
+<%= f.submit "Select your console", class: 'btn btn-primary' %>
+<%end%>

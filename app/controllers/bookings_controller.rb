@@ -10,6 +10,13 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @store = Store.find(@booking.game.store_id)
+    @marker =
+      {
+        lat: @store.latitude,
+        lng: @store.longitude,
+        info_window: render_to_string(partial: "shared/info_window", locals: {store: @store})
+      }
   end
 
   def create
@@ -21,5 +28,4 @@ class BookingsController < ApplicationController
       render 'games/show', status: :unprocessable_entity
     end
   end
-
 end
