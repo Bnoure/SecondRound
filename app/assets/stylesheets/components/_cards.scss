@@ -56,18 +56,18 @@
   perspective: 1000px;
 }
 
-.battle-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 1s;
-  transform-style: preserve-3d;
-}
+// .battle-card-inner {
+//   position: relative;
+//   width: 100%;
+//   height: 100%;
+//   text-align: center;
+//   transition: transform 1s;
+//   transform-style: preserve-3d;
+// }
 
-.battle-card .battle-card-inner.is-flipped {
-  transform: rotateY(180deg);
-}
+// .battle-card .battle-card-inner.is-flipped {
+//   transform: rotateY(180deg);
+// }
 
 .battle-card-front,
 .battle-card-back {
@@ -143,6 +143,7 @@
 
 // photos styles
 
+
 .game-photo{
   height: 100%;
   width: 120px;
@@ -154,4 +155,4 @@
 }
 .console-photo {
   width: 55px;
-}
+
