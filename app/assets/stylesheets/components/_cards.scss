@@ -4,8 +4,8 @@
   overflow: hidden;
   height: 110px;
   background: rgba(255, 255, 255, 0.2);
-  /*  box-shadow: 0 8px 32px 0 rgba(66, 66, 66, 0.37);
-  display: flex; */
+  box-shadow: 0 8px 32px 0 rgba(66, 66, 66, 0.37);
+  display: flex;
   align-items: center;
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -15,7 +15,7 @@
   -webkit-backdrop-filter: blur(8px);
 }
 
-.card-store img {
+.store-photo {
   height: 100%;
   width: 120px;
   object-fit: cover;
@@ -124,14 +124,13 @@
 .battle-card {
   transition: transform 2s ease;
 }
+
 .card-img-top {
   width: 200px;
   height: 200px;
   object-fit: cover;
   border-radius: 16px;
 }
-
-
 
 .text-strong {
   color: red;
@@ -144,8 +143,15 @@
 
 // photos styles
 
+.game-photo{
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
 
+.console-system{
+  width: 120px !important;
+}
 .console-photo {
-  width: 50px;
-
+  width: 55px;
 }
