@@ -36,7 +36,6 @@ class BattlesController < ApplicationController
   def set_winner
     @battle = Battle.find(params[:id])
     @battle.winning_game_id = params[:winning_game_id]
-    debugger
     if @battle.save
       render json: @battle
     else
