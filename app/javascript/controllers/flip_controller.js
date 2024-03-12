@@ -4,16 +4,21 @@ import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs
 export default class extends Controller {
 
   static targets = ["swiper1", "swiper2", "card", "link"];
+  static values = {
+    battleId: Number
+  }
   clickCount = 0;
 
   connect() {
+    console.log(this.battleIdValue)
 
-    console.log(this.linkTarget)
-    console.log(Swiper)
+
 
     const games1 = this.swiper1Target.dataset.flipGames1.split(',').map(Number)
     const games2 = this.swiper2Target.dataset.flipGames2.split(',').map(Number)
+
     console.log(games1, games2)
+
 
     const buttons = document.querySelectorAll('.xbtn-b');
     buttons[0].addEventListener('click', () => this.removeCard(games1));
@@ -38,6 +43,24 @@ export default class extends Controller {
     const lastGame = this.cardTargets[this.cardTargets.length - 1];
     if (lastGame) {
       const gameName = lastGame.dataset.gameName;
+      const gameId = lastGame.dataset.gameId;
+      const battleId = this.battleIdValue;
+      fetch(`/battles/${battleId}/set_winner`,{
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+        },
+        body: JSON.stringify({
+          winning_game_id: gameId
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+      })
+
       const gameImage = lastGame.querySelector('img').src;
 
       // Remplir le modal avec les informations du jeu
@@ -49,6 +72,7 @@ export default class extends Controller {
       document.getElementById('modal-backdrop').style.display = 'block';
 
       this.linkTarget.href =`/stores/?game_name=${gameName}`;
+
     }
   }
 }
