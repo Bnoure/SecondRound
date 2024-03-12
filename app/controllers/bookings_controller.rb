@@ -23,9 +23,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(game_id: params[:game_id])
     @booking.user = current_user
     if @booking.save
-      redirect_to booking_path(@booking)
-    else
-      render 'games/show', status: :unprocessable_entity
+      render json: { status: "created", booking_id: @booking.id }
     end
   end
 end
