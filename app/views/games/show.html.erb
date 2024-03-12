@@ -10,14 +10,18 @@
 </div>
 <div class="game-card mb-5">
   <div class="game-infos" >
-    p><%= @game.description %></p>
+    <%= @game.description %></p>
   </div>
 </div>
   </div>
   <div class="container select">
   <div class="container-fluid d-flex justify-content-between">
   <%= link_to "A",  game_bookings_path(@game),  class: "xbtn-a", data: {
-    turbo_method: :post,} %>
+    turbo_method: :post,
+    controller: "alert",
+    alert_game_id_value: @game.id,
+    action: "click->alert#initSweetalert"
+      } %>
   <p><strong><%= @game.price %></strong> € seulement</p>
   <%= link_to "B", store_path(@game.store), class: "xbtn-b" %>
   </div>

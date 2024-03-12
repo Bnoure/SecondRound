@@ -1,0 +1,20 @@
+<div data-controller="game-photo">
+  <%= simple_form_for [:seller, @game] do |f| %>
+    <%= f.input :store_id, as: :select,
+                collection: current_user.stores %>
+    <div class="game-photo-input">
+      <%= f.input :game_user_photo,
+                  as: :file,
+                  label: "Prenez une photo",
+                  input_html: {
+                    id: "game_user_photo",
+                    capture: "environment",
+                    accept: "image/*",
+                    data: { action: "change->game-photo#displayPhoto" }
+                  }
+      %>
+    </div>
+    <img src="" alt="" class="d-none" id="preview">
+    <%= f.submit "Ajouter un jeu", data: {game_photo_target: "submit"}, class: "d-none" %>
+  <% end %>
+</div>

@@ -1,0 +1,14 @@
+<div class="d-flex flex-column">
+  <%@stores.each do |store|%>
+    <span class="tdn">
+    <%= link_to store_path(store, query: params[:query]) do %>
+      <div class="card-store">
+        <%= cl_image_tag store.picture.key, class: "store-photo" %>
+        <div class="card-store-infos">
+          <h2><%=store.name%></h2>
+        </div>
+      </div>
+      </span>
+    <%end%>
+  <%end %>
+</div>
