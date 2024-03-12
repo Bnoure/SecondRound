@@ -22,91 +22,108 @@ export default class extends Controller {
       zoom: 17
     })
 
-    navigator.geolocation.getCurrentPosition(this.success.bind(this), this.error, options);
+    this.map.on('load', () => {
+        navigator.geolocation.getCurrentPosition(this.success.bind(this), this.error, options);
+    })
   };
 
   success(pos) {
-    console.log(pos.coords);
     const crd = pos.coords;
-    this.getRoute(this.markerValue, crd.latitude, crd.longitude, this.apiKeyValue, this.map)
-    /*     this.#addMarkersToMap()
-        this.#fitMapToMarkers() */
+    this.getRoute(crd)
   };
 
   error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
   };
 
-  async getRoute(end, start_lat, start_lng, apiKeyValue, map) {
-    const query = await fetch(
-      `https://api.mapbox.com/directions/v5/mapbox/walking/${start_lat},${start_lng};${end.lat},${end.lng}?steps=true&geometries=geojson&access_token=${apiKeyValue}`,
-      { method: 'GET' }
-    );
+  getRoute(crd) {
+    const start = [crd.longitude, crd.latitude]
+    const end = [this.markerValue.lng, this.markerValue.lat]
 
-    const json = await query.json();
-    const data = json.routes[0];
-    console.log(data)
-    const route = data.geometry.coordinates
+    fetch(`https://api.mapbox.com/directions/v5/mapbox/cycling/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`)
+    .then(response => response.json())
+    .then((data) => {
+      const geojson = this.#getRouteCoordinates(data)
+      this.#loadImage('https://res.cloudinary.com/dgmantli3/image/upload/v1710240782/v2ltcwrc2j9klcoqiqty.png', 'location')
+      this.#loadImage('https://res.cloudinary.com/dgmantli3/image/upload/v1710241475/ku36ijrpcdjkarylqdoc.png', 'user_icon')
+      this.#addRouteLayer(geojson)
+      this.#addMarkerlayer(start, 'start', 'user_icon')
+      this.#addMarkerlayer(end, 'end', 'location')
+      this.#fitMapToMarkers(start, end)
+    })
+  }
+
+  #loadImage(url, name) {
+    this.map.loadImage(
+      url,
+      (error, image) => {
+          if (error) throw error;
+
+          this.map.addImage(name, image);
+      }
+    );
+  }
+
+  #getRouteCoordinates(data) {
+    const itinary = data.routes[0].geometry.coordinates
     const geojson = {
-      type: 'Feature',
+      type: "Feature",
       properties: {},
       geometry: {
-        type: 'LineString',
-        coordinates: route
-      }
+        type: "LineString",
+        coordinates: itinary,
+      },
     };
+    return geojson
+  }
 
-    debugger
-
-      // if the route already exists on the map, we'll reset it using setData
-    if (map.getSource('route')) {
-      map.getSource('route').setData(geojson);
-    }
-    // otherwise, we'll make a new request
-    else {
-      map.addLayer({
-        id: 'route',
-        type: 'line',
-        source: {
-          type: 'geojson',
-          data: geojson
-        },
-        layout: {
-          'line-join': 'round',
-          'line-cap': 'round'
-        },
-        paint: {
-          'line-color': '#3887be',
-          'line-width': 5,
-          'line-opacity': 0.75
-        }
-      });
-    }
-    map.addLayer({
-      id: 'point',
-      type: 'circle',
+  #addRouteLayer(geojson) {
+    this.map.addLayer({
+      id: "route",
+      type: "line",
       source: {
-        type: 'geojson',
-        data: {
-          type: 'FeatureCollection',
-          features: [
-            {
-              type: 'Feature',
-              properties: {},
-              geometry: {
-                type: 'Point',
-                coordinates: [start_lng, start_lat]
-              }
-            }
-          ]
-        }
+        type: "geojson",
+        data: geojson,
+      },
+      layout: {
+        "line-join": "round",
+        "line-cap": "round",
       },
       paint: {
-        'circle-radius': 10,
-        'circle-color': '#3887be'
-      }
+        "line-color": "#3887be",
+        "line-width": 5,
+        "line-opacity": 0.75,
+      },
+    })
+  }
+
+  #addMarkerlayer(markerData, id, image) {
+    this.map.addLayer({
+      id: id,
+      type: "symbol",
+      source: {
+        type: "geojson",
+        data: {
+          type: "FeatureCollection",
+          features: [
+            {
+              type: "Feature",
+              properties: {},
+              geometry: {
+                type: "Point",
+                coordinates: markerData,
+              },
+            },
+          ],
+        },
+      },
+      layout: {
+        'icon-image': image, // reference the image
+        'icon-size': 0.08
+      },
     });
   }
+
 
   #addMarkersToMap() {
       const popup = new mapboxgl.Popup().setHTML(this.markerValue.info_window)
@@ -115,9 +132,10 @@ export default class extends Controller {
         .setPopup(popup)
         .addTo(this.map)
   }
-  #fitMapToMarkers() {
+  #fitMapToMarkers(start, end) {
     const bounds = new mapboxgl.LngLatBounds()
-    bounds.extend([ this.markerValue.lng, this.markerValue.lat ])
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 17, duration: 5000 })
+    bounds.extend([start[0], start[1]])
+    bounds.extend([end[0], end[1]])
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 17, duration: 3000 })
   }
 }
