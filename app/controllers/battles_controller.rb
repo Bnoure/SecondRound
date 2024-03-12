@@ -26,6 +26,7 @@ class BattlesController < ApplicationController
   end
 
   def edit
+    @fight_page = true
     @hide_nav = true
     @battle = Battle.find(params[:id])
     @first_games = Game.where(console_id: @battle.console_id).sample(5)
