@@ -15,17 +15,17 @@ Rails.application.routes.draw do
   get 'pages/emma'
   get 'pages/xavier'
   get 'pages/dashboard'
-  resources :battles, only: [:index, :show, :new, :create, :edit, :destroy] do
-    member do
-      patch 'set_winner'
-    end
-  end
-
-  resources :games do
+resources :battles, only: [:index, :show, :new, :create]
+  resources :games, only: [:show] do
     resources :bookings, only: [:create]
   end
   resources :bookings, only: [:index, :show]
   resources :stores, only: [:index, :show]
+  namespace :seller do
+    resources :stores, only: [:index, :show]
+    resources :games
+    resources :bookings, only: [:index, :update]
+  end
 
  get 'location', to: 'users#get_current_address'
 
