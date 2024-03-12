@@ -17,3 +17,5 @@ pin "raf" # @3.4.1
 pin "rebound" # @0.0.13
 pin "sister" # @3.0.2
 pin "vendor-prefix" # @0.1.0
+pin "mapbox-gl" # @3.1.2
+pin "sweetalert2", to: "https://ga.jspm.io/npm:sweetalert2@11.7.2/dist/sweetalert2.all.js" # @11.10.6

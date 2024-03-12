@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'pages/emma'
   get 'pages/xavier'
   get 'pages/dashboard'
-  resources :battles, only: [:index, :show, :new, :create]
+resources :battles, only: [:index, :show, :new, :create]
   resources :games, only: [:show] do
     resources :bookings, only: [:create]
   end

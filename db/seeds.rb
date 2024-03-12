@@ -65,7 +65,7 @@ ps1.picture.attach(io: file, filename: "PS1.jpg", content_type: "image/png")
 url = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Master_System_Logo.svg/345px-Master_System_Logo.svg.png"
 file =  URI.open(url)
 
-master_system = Console.create!(name: 'master system')
+master_system = Console.create!(name: 'Master system')
 master_system.picture.purge if master_system.picture.attached?
 master_system.picture.attach(io: file, filename: "master_system.jpg", content_type: "image/png")
 
