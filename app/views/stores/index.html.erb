@@ -2,7 +2,7 @@
 <div class="d-flex flex-column">
   <%@stores.each do |store|%>
     <span class="tdn">
-    <%= link_to store_path(store, query: params[:game_name]) do %>
+    <%= link_to store_path(store, game_name: params[:game_name]) do %>
       <div class="card-store">
         <%= cl_image_tag store.picture.key, class: "store-photo" %>
         <div class="card-store-infos">

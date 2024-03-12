@@ -42,15 +42,15 @@
 }
 
 .grid3 {
-  /* display: grid; */
-  grid-gap: 10px;
+  margin-top: 3px;
+  grid-gap: 20px;
   grid-template-rows: 1fr 1fr;
   border-radius: 20px;
   margin-right: -3px;
   display: inline-grid;
+  height: -moz-min-content;
   height: min-content;
-  /* justify-content: space-between; */
-  grid-row-gap: 14px;
+  grid-row-gap: 10px;
 }
 
 .child1,
