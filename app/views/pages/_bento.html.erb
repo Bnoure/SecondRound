@@ -23,15 +23,9 @@
     <p style="font-weight: bold;">
       <% if @winning_game.present? %>
        <%= cl_image_tag @winning_game.picture.key, style: "width: 40%;" %>
+       <%= @last_battle.updated_at.strftime("%d/%m/%Y") %>
       <% else %>
-        Pas de jeu gagnant
-      <% end %>
-    </p>
-    <p style="font-weight: bold;">
-      <% if @last_battle.present? %>
-        <%= @last_battle.updated_at.strftime("%d/%m/%Y") %>
-      <% else %>
-        Pas de bataille récente
+        Pas de bataille effectuée
       <% end %>
     </p>
   </div>
@@ -54,7 +48,7 @@
             <% if @last_booking_date.present? %>
               <%= render 'timer', last_booking_date: @last_booking_date %>
             <% else %>
-              Pas de réservation en cours
+              <span class="smalltext">Pas de réservation en cours</span>
             <% end %>
           </div>
         <% end %>
@@ -71,7 +65,7 @@
 
 
 
-      <%= link_to booking_path(@booking_last), class: "my-btn2" do %>
+      <%= link_to bookings_path, class: "my-btn2" do %>
   <div class="grid4">
     <%= image_tag "reservation.png", alt: "reservation.png", class: "img-fluid", style: "width: 20%;" %>
     <p style="font-weight: bold;">Vos réservations en cours </p>
