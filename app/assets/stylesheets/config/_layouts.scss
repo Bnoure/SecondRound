@@ -1,15 +1,8 @@
 $bg-dark-l-opacity: 0.8;
 
 .body1 {
-  background-image: linear-gradient(
-    to bottom,
-    #e4dfde,
-    #ffffff,
-    #ffffff,
-    #e3e3e3,
-    #ccc3c2
-  );
-  filter: brightness(0.9);
+  background-image: asset-url("fond3.jpg");
+
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -62,12 +55,10 @@ p {
   padding-left: 31px;
 }
 
-
 .overflowHidden {
   overflow: hidden;
 }
 
 .bg-dark-l {
   background-color: rgba(33, 37, 41, $bg-dark-l-opacity);
-
 }
