@@ -91,7 +91,7 @@
 
 .paragraph {
   transform: scale(1); // Ajoutez cette ligne
-  color: white; // Changez la couleur en blanc
+  color: red; // Changez la couleur en blanc
   visibility: hidden;
   opacity: 0;
   font-size: 18px;
@@ -101,6 +101,12 @@
   transition: 0.2s linear;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.paragraph.reservation {
+  font-size: 10px;
+
+  margin: -25px;
 }
 
 .category-selector:checked + label .paragraph {
