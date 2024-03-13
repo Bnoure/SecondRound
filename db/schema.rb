@@ -43,11 +43,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_13_094527) do
   end
 
   create_table "battles", force: :cascade do |t|
-    t.string "console"
     t.bigint "winning_game_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "console_id", null: false
+    t.index ["console_id"], name: "index_battles_on_console_id"
     t.index ["user_id"], name: "index_battles_on_user_id"
     t.index ["winning_game_id"], name: "index_battles_on_winning_game_id"
   end
@@ -92,10 +93,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_13_094527) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "open_hour"
-    t.integer "close_hour"
     t.float "latitude"
     t.float "longitude"
+    t.integer "open_hour"
+    t.integer "close_hour"
     t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
@@ -116,6 +117,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_13_094527) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "battles", "consoles"
   add_foreign_key "battles", "games", column: "winning_game_id"
   add_foreign_key "battles", "users"
   add_foreign_key "bookings", "games"

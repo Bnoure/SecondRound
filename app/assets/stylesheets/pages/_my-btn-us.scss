@@ -1,0 +1,58 @@
+.my-btn-us {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 10px;
+  color: white;
+  text-shadow: 2px 2px #747474;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: solid 2px black;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 17px;
+  background-color: #fdd835;
+  border-radius: 0.25em;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  /* top: 21px; */
+}
+
+.my-btn-us:active {
+  transform: scale(0.9);
+  transition: all 100ms ease;
+}
+
+.my-btn-us svg {
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.my-btn-us .play {
+  transition: all 0.5s ease;
+  transition-delay: 300ms;
+}
+
+.my-btn-us:hover svg {
+  transform: scale(3) translate(50%);
+}
+
+.my-btn-us .now {
+  position: absolute;
+  left: 0;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.my-btn-us:hover .now {
+  transform: translateX(10px);
+  transition-delay: 300ms;
+}
+
+.my-btn-us:hover .play {
+  transform: translateX(200%);
+  transition-delay: 300ms;
+}

@@ -1,7 +1,16 @@
-<h1 class="text-light mb-4">You Won</h1>
 <div class="container">
-  <div class="container-fluid">
-    <p>Votre Reservation de : <%= @booking.game.title %>  à bien été effectuée</p>
+  <div class="border rounded-4 mb-4 p-3 bg-dark opacity-75 mt-4">
+    <div class="container-fluid">
+      <h1 class="text-light mb-4">You Won</h1>
+      <p>Votre Réservation de : <span class="text-success fw-bold fs-5"><%= @booking.game.title %></span> a bien été effectuée. <br><br>
+      Vous avez jusqu'au <%= @booking.limit_date %> pour venir le récupérer au : <br> <br>  <%=@booking.game.store.address %></p>
+    </div>
   </div>
-    <p>Vous avez jusqu'a <%= @booking.limit_date %> pour venir le récupérer ici : <%= @booking.game.store.address %></p>
+  <div class="container d-flex justify-content-center">
+    <div class="rounded-4", style="width: 95%; height: 300px;"
+      data-controller="map"
+      data-map-marker-value="<%= @marker.to_json %>"
+      data-map-api-key-value="<%=ENV["MAPBOX_API_KEY"]%>">
+    </div>
+  </div>
 </div>
