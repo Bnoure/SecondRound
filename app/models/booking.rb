@@ -8,7 +8,8 @@ class Booking < ApplicationRecord
   private
 
   def set_limit_date
-    date = Date.today + 3.days
+    date = created_at + 3.days
     update(limit_date: date)
+    
   end
 end

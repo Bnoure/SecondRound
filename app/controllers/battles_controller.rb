@@ -11,6 +11,7 @@ class BattlesController < ApplicationController
 
   def new
     @battle = Battle.new
+    @consoles = Console.all
   end
 
 

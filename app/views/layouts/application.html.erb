@@ -11,7 +11,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="<%= @fight_page ? "body2": "body1" %>">
+  <body class="<%= @fight_page ? "body2" : "body1" %><%= yield(:overflow)%>">
 
     <%= render 'shared/top' unless @hide_top %>
   <%= render "shared/flashes" %>
