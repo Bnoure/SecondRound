@@ -1,11 +1,26 @@
+<div class="container">
+  <br>
+  <br>
+  <h1 class="text-center text-light">Voici les infos trouvées</h1>
+  <br>
 <%= simple_form_for [:seller, @game] do |f|%>
-<%= cl_image_tag @game.picture.key %>
-  <%=f.input :title %>
-  <%= f.input :description %>
-  <%=f.input :category  %>
-  <%=f.input :year   %>
-  <%= f.input :condition, label:"Condition" %>
-  <%= f.input :price, label:"Prix" %>
-  <%=f.input :store_id, as: :select, collection: current_user.stores  %>
-  <%= f.input :console, as: :select, collection: Console.all, selected: @game.console %>
+<div class="d-flex justify-content-center">
+<%= cl_image_tag @game.picture.key, class:"card-img-top" if @game.picture.attached? %>
+</div>
+  <%=f.input :title, label: "Titre", label_html: { class: "text-light"}%>
+  <%= f.input :description, label: "Déscription", label_html: { class: "text-light"}, input_html: {rows: 6}%>
+  <%=f.input :category, label: "Catégorie", label_html: { class: "text-light"}%>
+  <%=f.input :year, label: "Année de sortie", label_html: { class: "text-light"}%>
+<br>
+<p class="fs-4">Remplissez les champs suivants:</p>
+<br>
+<div>
+  <%= f.input :condition, as: :select, collection: Game::CONDITIONS, label:"Condition", label_html: { class: "text-light"}%>
+  <%= f.input :price, label:"Prix", label_html: { class: "text-light"} %>
+  <%=f.input :store_id, as: :select, collection: current_user.stores, label_html: { class: "text-light"} %>
+  <%= f.input :console_id, as: :select, collection: Console.all, selected: @game.console, label_html: { class: "text-light"}%>
+  <br>
+  <%= f.submit "Valider la création du jeu", class: "d-block mx-auto btn btn-light rounded-4"%>
 <% end %>
+</div>
+</div>

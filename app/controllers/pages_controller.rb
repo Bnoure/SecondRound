@@ -2,7 +2,6 @@ class PagesController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:dashboard, :emma, :xavier, :nour,:noure]
 
-
   def home
     @hide_nav = true
     @user = current_user
