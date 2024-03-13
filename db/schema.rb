@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_11_145815) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_13_145459) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,11 +52,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_145815) do
     t.index ["user_id"], name: "index_battles_on_user_id"
     t.index ["winning_game_id"], name: "index_battles_on_winning_game_id"
   end
-  
+
   create_table "bookings", force: :cascade do |t|
     t.bigint "game_id", null: false
     t.bigint "user_id", null: false
-    t.date "limit_date"
+    t.datetime "limit_date"
     t.integer "status", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -81,6 +81,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_145815) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "console_id"
+    t.string "english_title"
     t.index ["console_id"], name: "index_games_on_console_id"
     t.index ["store_id"], name: "index_games_on_store_id"
   end
@@ -92,10 +93,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_145815) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
     t.integer "open_hour"
     t.integer "close_hour"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_stores_on_user_id"
   end
 

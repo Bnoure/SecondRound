@@ -3,6 +3,7 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
 
+
   static targets = ["swiper1", "swiper2", "card", "link"];
   static values = {
     battleId: Number

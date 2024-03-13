@@ -2,10 +2,14 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 70px;
 }
 
 .category-item {
   flex: 0 0 30%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .category-selector {
@@ -14,21 +18,36 @@
 }
 
 .category-selector + label {
+  font-size: 20px;
   display: block;
   cursor: pointer;
   box-sizing: border-box;
   width: 100%;
-  font-size: 12px;
-  text-align: left;
+  color: white;
+  text-align: center;
   padding: 10px 10px 30px 10px;
-  border: 1px solid #eaeaea;
+  border: 2px solid #000;
   border-radius: 4px;
-  background-color: white;
+  background-color: #416d19;
+  box-shadow: 5px 5px 0px #000;
+  transition: all 0.3s ease;
+}
+
+.category-selector + label:hover {
+  background-color: #0e6b0e;
+  border: 2px solid #416d19;
+}
+
+.category-selector + label:hover p {
+  color: white;
+  text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.363);
 }
 
 .category-selector:checked + label {
-  color: rgb(232, 11, 11) !important;
-  background-color: rgb(232, 11, 11);
+  color: black;
+  background-color: white; // Changez la couleur de fond en blanc lorsque le bouton radio est sélectionné
+  box-shadow: none;
+  transform: translateY(4px);
 }
 
 .but {
@@ -72,7 +91,7 @@
 
 .paragraph {
   transform: scale(1); // Ajoutez cette ligne
-  color: red;
+  color: red; // Changez la couleur en blanc
   visibility: hidden;
   opacity: 0;
   font-size: 18px;
@@ -82,6 +101,16 @@
   transition: 0.2s linear;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.paragraph.reservation {
+  font-size: 10px;
+
+  margin: -25px;
+}
+
+.category-selector:checked + label .paragraph {
+  color: black; // Changez la couleur en noir lorsque le bouton radio est sélectionné
 }
 
 .icon-wrapper {
@@ -105,4 +134,22 @@
   stroke-width: 2px;
   -webkit-transition: 0.2s linear;
   transition: 0.2s linear;
+}
+
+.consolebut {
+  border: 1px solid transparent;
+  position: relative;
+  top: 24px;
+  left: 85px;
+  /* bottom: 106px; */
+  height: 68px;
+  background: linear-gradient(140deg, #4b76c8 0%, #1f4691 100%);
+  border-radius: 2em;
+  box-shadow: inset 0px 0px 5px rgba(17, 17, 17, 0);
+}
+
+.consolebut:hover {
+  box-shadow: inset 0px 0px 5px rgba(17, 17, 17, 0.6);
+  border: 1px solid rgba(26, 26, 26, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }

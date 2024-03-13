@@ -5,7 +5,7 @@ class Seller::BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
+    @booking.update(status: params[:status])
     redirect_to seller_bookings_path
   end
 end

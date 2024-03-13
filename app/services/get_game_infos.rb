@@ -1,6 +1,5 @@
 class GetGameInfos
-  REGEX = /Nom: (?<title>[^\n]+)\s*Année de sortie en France: (?<year>[^\n]+)\s*Console: (?<console>[^\n]+)\s*Description courte: (?<description>[^\n]+)\s*Catégorie: (?<category>[^\n]+)/
-
+REGEX = /Nom: (?<title>[^\n]+)\s*Nom du jeu en anglais: (?<english_title>[^\n]+)\s*Année de sortie en France: (?<year>[^\n]+)\s*Description courte: (?<description>[^\n]+)\s*Catégorie: (?<category>[^\n]+)/
   def initialize(attributes = {})
     @game_user_photo = attributes[:game_user_photo]
     @client = OpenAI::Client.new
@@ -14,7 +13,7 @@ class GetGameInfos
 
   def get_game_infos
     encoded_img = encode_img
-    text = "Sous forme de clé valeur, retourne moi nom, année de sortie en France, console, description courte et catégorie du jeu présent sur cette photo"
+    text = "Sous forme de clé valeur, retourne moi nom, nom du jeu en anglais, année de sortie en France, description courte et catégorie du jeu présent sur cette photo. Il faut une seule catégorie de jeu"
     messages = [
       { type: "text", text: text},
       { type: "image_url",
