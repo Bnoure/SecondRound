@@ -1,15 +1,26 @@
-<div data-controller="game-photo">
+<div data-controller="game-photo" class="container d-flex flex-column justify-content-center align-items-center border rounded-4 mb-4 p-3 bg-dark-l mt-4 pt-5">
+  <h1 class="text-white">Ajouter un jeu</h1>
   <%= simple_form_for [:seller, @game] do |f| %>
-    <%= f.input :store_id, as: :select,
-                collection: current_user.stores %>
-    <div class="game-photo-input">
+    <div class="game-input">
+      <%= f.label :store_id, "Choisis ta boutique",
+      class: "mb-3 fs-5"%>
+      <%= f.input :store_id, as: :select,
+                  collection: current_user.stores,
+                  label: false,
+                  input_html: {
+                    class: "",
+                  } %>
+    </div>
+    <div class="game-photo-input my-5">
       <%= f.input :game_user_photo,
                   as: :file,
-                  label: "Prenez une photo",
+                  label: "Prendre une photo",
+                  label_html: { class: "fs-2" },
                   input_html: {
                     id: "game_user_photo",
                     capture: "environment",
                     accept: "image/*",
+                    class: "game-photo-button",
                     data: { action: "change->game-photo#displayPhoto" }
                   }
       %>
