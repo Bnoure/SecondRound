@@ -1,3 +1,7 @@
+<% content_for :overflow do
+  " overflowHidden"
+end %>
+
 <div class="test-container" data-controller="flip" data-flip-battle-id-value="<%=@battle.id%>">
   <button class= "xbtn-b">  FINSIH HIM </button>
   <div class="swiper-container" data-flip-target="swiper1" data-flip-games1="<%= @first_games.map(&:id).join(',') %>">
