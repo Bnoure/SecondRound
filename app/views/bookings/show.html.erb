@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <h1 class="text-light mb-4">You Won</h1>
       <p>Votre Réservation de : <span class="text-success fw-bold fs-5"><%= @booking.game.title %></span> a bien été effectuée. <br><br>
-      Vous avez jusqu'au <%= @booking.limit_date %> pour venir le récupérer au : <br> <br>  <%=@booking.game.store.address %></p>
+      Vous avez jusqu'au <%= @booking.limit_date.strftime('%d/%m/%Y') %> pour venir le récupérer au : <br> <br>  <%=@booking.game.store.address %></p>
     </div>
   </div>
   <div class="container d-flex justify-content-center">

@@ -1,3 +1,5 @@
+$bg-dark-l-opacity: 0.8;
+
 .body1 {
   background-image: linear-gradient(
     to bottom,
@@ -60,6 +62,12 @@ p {
   padding-left: 31px;
 }
 
+
 .overflowHidden {
   overflow: hidden;
+}
+
+.bg-dark-l {
+  background-color: rgba(33, 37, 41, $bg-dark-l-opacity);
+
 }
