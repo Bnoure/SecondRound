@@ -45,12 +45,12 @@
 
 .child1 {
   justify-content: space-between;
-  border-radius: 0.25em;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(66, 66, 66, 0.5);
   position: relative;
-  width: 172px;
-  left: -99px;
+  width: 192px;
+  left: -88px;
   height: 54px;
   bottom: 4px;
   backdrop-filter: blur(8px);
@@ -262,13 +262,9 @@
   );
 
   font-size: 25px;
-
   border-style: outset;
-
   cursor: pointer;
-  border-radius: 45px;
   color: rgba(255, 255, 255, 1);
-
   box-shadow: inset 0px 0px 5px rgba(17, 17, 17, 0);
   transition: all 0.5s ease-in-out;
   border: 1px solid transparent;

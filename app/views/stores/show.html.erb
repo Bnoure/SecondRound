@@ -11,7 +11,9 @@
     <%=  cl_image_tag game.picture.key, class: "game-photo" %>
         <div class="game-infos">
         <h2><%= game.title %></h2>
-        <p><%= cl_image_tag game.console.picture.key, class: "console-photo #{"console-system" if game.console.name == "Master system"}"%></p>
+       <% if game.console %>
+        <p><%= cl_image_tag game.console.picture.key, class: "console-photo #{"console-system" if game.console.name == "Master System"}"%></p>
+        <% end %>
         <p><strong><%= game.price %></strong> €</p>
     </div>
     </div>
