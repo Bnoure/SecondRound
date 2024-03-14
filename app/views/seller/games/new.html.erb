@@ -1,33 +1,43 @@
-<div data-controller="game-photo" class="container d-flex flex-column justify-content-center align-items-center border rounded-4 mb-4 p-3 bg-dark-l mt-4 pt-5">
-  <h1 class="text-white">Ajouter un jeu</h1>
-  <%= simple_form_for [:seller, @game], html: {
-    class: "form-new-game"
-  } do |f| %>
-    <div class="game-input">
-      <%= f.label :store_id, "Choisis ta boutique",
-      class: "mb-3 fs-5"%>
-      <%= f.input :store_id, as: :select,
-                  collection: current_user.stores,
-                  label: false,
-                  input_html: {
-                    class: "form-select-new-game",
-                  } %>
+<div data-controller="game-photo loader" class="container d-flex flex-column justify-content-center align-items-center border rounded-4 mb-4 p-3 bg-dark-l mt-4 pt-5">
+    <div class="loading d-none" data-controller="get-game-infos" data-loader-target="loader" data-get-game-infos-game-uuid-value="<%= @game_uuid %>">
+      <img src="http://a.top4top.net/p_1990j031.gif" alt="Loading">
+      <div class="ring">Loading
+        <span></span>
+      </div>
     </div>
-    <div class="game-photo-input my-5">
-      <%= f.input :game_user_photo,
-                  as: :file,
-                  label: "Prendre une photo",
-                  label_html: { class: "fs-2" },
-                  input_html: {
-                    id: "game_user_photo",
-                    capture: "environment",
-                    accept: "image/*",
-                    class: "game-photo-button",
-                    data: { action: "change->game-photo#displayPhoto" }
-                  }
-      %>
-    </div>
-    <img src="" alt="" class="d-none" id="preview">
-    <%= f.submit "Ajouter un jeu", data: {game_photo_target: "submit"}, class: "d-none" %>
-  <% end %>
+    <h1 class="text-white" data-game-photo-target="title">Ajouter un jeu</h1>
+    <%= simple_form_for [:seller, @game], html: { class: "form-new-game", data: { action: "turbo:submit-start->loader#display" } } do |f| %>
+      <div class="game-input" data-game-photo-target="form">
+        <%= f.label :store_id, "Choisis ta boutique",
+        class: "mb-3 fs-5"%>
+        <%= f.input :store_id, as: :select,
+                    collection: current_user.stores,
+                    label: false,
+                    input_html: {
+                      class: "form-select-new-game",
+                    } %>
+      </div>
+      <div class="game-photo-input my-5" data-game-photo-target="button">
+        <%= f.input :game_user_photo,
+                    as: :file,
+                    label: "Prendre une photo",
+                    label_html: { class: "fs-2" },
+                    input_html: {
+                      id: "game_user_photo",
+                      capture: "environment",
+                      accept: "image/*",
+                      class: "game-photo-button",
+                      data: { action: "change->game-photo#displayPhoto" }
+                    }
+        %>
+        <%= f.input :game_uuid, as: :hidden, input_html: { value: @game_uuid } %>
+      </div>
+      <img src="" alt="" class="picture-game d-none m-4 rounded-4 border" id="preview">
+      <div class="button-photo d-flex justify-content-start">
+        <div class="d-none"  data-action="click->game-photo#retake", data-game-photo-target="retake">
+          <%= link_to "Reprendre une photo", class: "retake" %>
+        </div>
+        <%= f.submit "Ok", data: {game_photo_target: "submit"}, class: "d-none" %>
+      </div>
+    <% end %>
 </div>

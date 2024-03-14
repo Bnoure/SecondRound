@@ -5,19 +5,20 @@ class Seller::GamesController < ApplicationController
 
   def new
     @game = Game.new
+    @game_uuid = SecureRandom.uuid
   end
 
   def create
-    @game_infos_service = GetGameInfos.new(game_user_photo: game_params[:game_user_photo])
-    @game_infos = @game_infos_service.call
-    @game = @game_infos.nil? ? Game.new : Game.build_with_api_data(@game_infos)
+    @game = Game.new
+    @encoded_photo = encode_image
     @game.store = Store.find(game_params[:store_id])
-    @game_picture_service = AttachGamePicture.new(game: @game).call if @game.english_title.present?
     if @game.save
-      redirect_to edit_seller_game_path(@game)
+      GetGameInfosJob.perform_later(@game, @encoded_photo, game_params[:game_uuid])
     else
       render :new, status: :unprocessable_entity
     end
+
+    head :ok
   end
 
   def edit
@@ -38,8 +39,13 @@ class Seller::GamesController < ApplicationController
 
   private
 
+  def encode_image
+    file_content = File.read(game_params[:game_user_photo].tempfile)
+    Base64.strict_encode64(file_content)
+  end
+
   def game_params
     params.require(:game).permit(:game_user_photo, :title, :description, :price, :category, :year, :condition,
-                                 :console_id, :store_id)
+                                 :console_id, :store_id, :game_uuid)
   end
 end
