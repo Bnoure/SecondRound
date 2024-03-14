@@ -19,10 +19,11 @@
   box-shadow: 0 8px 32px 0 rgba(66, 66, 66, 0.5);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  height: 125px;
+  height: 149px;
   text-align: center;
   flex-direction: column;
   gap: 10px;
+  margin-right: 6px;
 }
 
 .wrapper2 {
@@ -215,7 +216,7 @@
 .grid2 .front {
   display: block;
   position: relative;
-  padding: 12px 27px;
+  padding: 12px 24px;
   border-radius: 12px;
   font-size: 1.1rem;
   color: white;
@@ -224,6 +225,7 @@
   transform: translateY(-4px);
   transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
   overflow: auto;
+  height: 139px;
 }
 
 .grid2:hover {
