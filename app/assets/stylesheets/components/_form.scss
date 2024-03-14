@@ -18,17 +18,14 @@
     label{
       color: white;
       padding: 1em;
-      background: linear-gradient(140deg, #4B76C8 0%, #1F4691 100%);
       border-radius: 20px;
       width: 80%;
       text-align: center;
     }
-
-
   }
 
-  .button-photo {
-    gap: 100px;
+  .buttons-photo {
+    align-items: center;
   }
 
   .picture-game {
@@ -50,9 +47,6 @@
   max-width: 1000px;
   position: relative;
   color: white;
-  .game-photo-button {
-    background: linear-gradient(140deg, #4B76C8 0%, #1F4691 100%);
-  }
 }
 
 .form-select-new-game {
@@ -67,5 +61,34 @@
   option {
     color: black;
     background-color: white;
+  }
+}
+
+.button-photo-ok {
+  font-family: "Space Grotesk", sans-serif;
+  color: #FAFAFA;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #FAFAFA;
+  background: #252525;
+  box-shadow: 3px 3px #fafafa;
+  cursor: pointer;
+  margin: 35px 0;
+  width: 50%;
+}
+
+.button-photo-ok:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.icon-camera {
+  a {
+    font-family: "Space Grotesk", sans-serif;
+    padding: 20px;
+    font-size: 1em;
+    text-decoration: none;
+    color: white;
   }
 }

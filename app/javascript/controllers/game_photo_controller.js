@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="game-photo"
 export default class extends Controller {
-  static targets = [ "submit", "form", "title", "button", "retake" ]
+  static targets = [ "submit", "form", "title", "button", "retake", "container" ]
 
  displayPhoto(event) {
     const file = event.target.files[0]
@@ -17,6 +17,7 @@ export default class extends Controller {
     this.titleTarget.classList.add('d-none')
     this.formTarget.classList.add('d-none')
     this.buttonTarget.classList.add('d-none')
+    this.containerTarget.classList.remove('border')
     }
     reader.readAsDataURL(file)
 
@@ -30,5 +31,6 @@ export default class extends Controller {
     this.titleTarget.classList.remove('d-none')
     this.formTarget.classList.remove('d-none')
     this.buttonTarget.classList.remove('d-none')
+    this.containerTarget.classList.add('border')
   }
 }
