@@ -1,21 +1,18 @@
-
-
 .form-new-game {
-
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
-  .game-photo-input{
+  .game-photo-input {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    input{
+    input {
       display: none;
     }
-    label{
+    label {
       color: white;
       padding: 1em;
       border-radius: 20px;
@@ -30,7 +27,7 @@
 
   .picture-game {
     width: 100%;
-    border: 4mm ridge rgba(255, 255, 255, .6);
+    border: 4mm ridge rgba(255, 255, 255, 0.6);
   }
 }
 
@@ -41,7 +38,7 @@
 }
 
 .game-input {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   margin: 1em 0 0 0;
   width: 75%;
   max-width: 1000px;
@@ -66,11 +63,11 @@
 
 .button-photo-ok {
   font-family: "Space Grotesk", sans-serif;
-  color: #FAFAFA;
+  color: #fafafa;
   text-transform: uppercase;
   padding: 10px 20px;
   border-radius: 10px;
-  border: 2px solid #FAFAFA;
+  border: 2px solid #fafafa;
   background: #252525;
   box-shadow: 3px 3px #fafafa;
   cursor: pointer;
@@ -91,4 +88,8 @@
     text-decoration: none;
     color: white;
   }
+}
+
+.seacher-input-wrapper {
+  margin-left: 14px;
 }

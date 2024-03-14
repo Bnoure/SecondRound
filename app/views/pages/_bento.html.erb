@@ -22,7 +22,9 @@
   <div class="front"> <p style="font-weight: bold;font-size: 12px;">Dernière bataille</p>
     <p style="font-weight: bold;">
       <% if @winning_game.present? %>
-       <%= cl_image_tag @winning_game.picture.key, style: "width: 40%;" %>
+       <%= cl_image_tag @winning_game.picture.key, style: "width: 69%; border-radius: 10px;
+    bottom: 6px;
+    position: relative;" %>
        <%#= @last_battle.updated_at.strftime("%d/%m/%Y") %>
       <% else %>
         Pas de bataille effectuée

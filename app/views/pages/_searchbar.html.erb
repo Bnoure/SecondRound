@@ -1,18 +1,21 @@
 <div class="d-flex flex-column align-items-center" data-controller="searchbar">
   <%= form_with url: stores_path, method: :get do |form| %>
-    <div class="inputGroup">
-      <%= form.text_field :game_name, autocomplete: "off", required: "" %>
-      <%= form.label :game_name, "Game's name", class: "game-title" %>
+    <div class="seacher-input-wrapper">
+      <div class="inputGroup">
+        <%= form.text_field :game_name, autocomplete: "off" %>
+        <%= form.label :game_name, "Nom du jeu", class: "game-title" %>
+      </div>
+      <div class="inputGroup">
+        <%#= form.text_field :console, autocomplete: "off", required: "" %>
+        <%= form.collection_select(:console_id, Console.all, :id, :name) %>
+        <%#= form.label :console, "Console", class: "game-title" %>
+      </div>
     </div>
-    <div class="inputGroup">
-      <%#= form.text_field :console, autocomplete: "off", required: "" %>
-      <%= form.collection_select(:console_id, Console.all, :id, :name) %>
-      <%#= form.label :console, "Console", class: "game-title" %>
-    </div>
+
     <div class="d-flex align-items-center output-location" data-searchbar-target="inputLocation">
       <div class="mt-3" data-action="click->searchbar#inputEnable">
         <i class="fa-solid fa-location-dot fs-4" data-searchbar-target="locationDot"></i>
-        <%= form.text_field :localisation, autocomplete: 'off', required: "",class:"output-location", data: {
+        <%= form.text_field :localisation, autocomplete: 'off',class:"output-location", data: {
           searchbar_target: "outputLocation"
           }
         %>
