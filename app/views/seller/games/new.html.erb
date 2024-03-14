@@ -6,7 +6,7 @@
       </div>
     </div>
     <h1 class="text-white" data-game-photo-target="title">Ajouter un jeu</h1>
-    <%= simple_form_for [:seller, @game], html: { data: { action: "turbo:submit-start->loader#display" } } do |f| %>
+    <%= simple_form_for [:seller, @game], html: { class: "form-new-game", data: { action: "turbo:submit-start->loader#display" } } do |f| %>
       <div class="game-input" data-game-photo-target="form">
         <%= f.label :store_id, "Choisis ta boutique",
         class: "mb-3 fs-5"%>
@@ -14,7 +14,7 @@
                     collection: current_user.stores,
                     label: false,
                     input_html: {
-                      class: "",
+                      class: "form-select-new-game",
                     } %>
       </div>
       <div class="game-photo-input my-5" data-game-photo-target="button">
