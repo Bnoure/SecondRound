@@ -19,11 +19,11 @@
 <%= link_to battles_path, class: "my-btn grid2" do %>
   <div class="shadow"></div>
   <div class="edge"></div>
-  <div class="front">
+  <div class="front"> <p style="font-weight: bold;font-size: 12px;">Dernière bataille</p>
     <p style="font-weight: bold;">
       <% if @winning_game.present? %>
        <%= cl_image_tag @winning_game.picture.key, style: "width: 40%;" %>
-       <%= @last_battle.updated_at.strftime("%d/%m/%Y") %>
+       <%#= @last_battle.updated_at.strftime("%d/%m/%Y") %>
       <% else %>
         Pas de bataille effectuée
       <% end %>

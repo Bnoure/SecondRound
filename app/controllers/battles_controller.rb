@@ -2,7 +2,8 @@ class BattlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :create, :edit]
 
   def index
-    @battles = Battle.where(user_id: current_user.id).where.not(winning_game_id: nil)
+    @battles = Battle.where(user_id: current_user.id).where.not(winning_game_id: nil).order(updated_at: :desc)
+
   end
 
   def show
