@@ -18,7 +18,9 @@
     <div class="container p-b">
     <%= yield %>
     </div>
-    <%= render 'shared/navbar' unless @hide_nav  %>
+    <% if user_signed_in? %>
+      <%= render 'shared/navbar' unless @hide_nav  %>
+    <% end %>
   </body>
 
 </html>
