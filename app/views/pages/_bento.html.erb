@@ -45,11 +45,11 @@
 
         <%= link_to root_path, class: "my-btn" do %>
           <div class="child1">
-            <% if @booking_last.present? %>
-              <%= render 'timer', booking_last: @booking_last %>
-            <% else %>
-              <span class="smalltext">Pas de réservation en cours</span>
-            <% end %>
+            <%# if @booking_last.present? %>
+              <%#= render 'timer', booking_last: @booking_last %>
+            <%# else %>
+<!--              <span class="smalltext">Pas de réservation en cours</span>-->
+            <%# end %>
           </div>
         <% end %>
 
