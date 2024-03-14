@@ -21,7 +21,7 @@ export default class extends Controller {
     console.log(games1, games2)
 
 
-    const buttons = document.querySelectorAll('.xbtn-b');
+    const buttons = document.querySelectorAll('.xbtn-b-battle');
     buttons[0].addEventListener('click', () => this.removeCard(games1));
     buttons[1].addEventListener('click', () => this.removeCard(games2));
   }

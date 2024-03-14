@@ -2,6 +2,8 @@
 <% content_for :overflow do
   " overflowHidden"
 end %>
+
+<h2 class="battle-title"> Sur quelle console souhaitez-vous combattre ? </h2>
 <%= simple_form_for @battle do |f| %>
 <%= f.input :console_id,
             as: :radio_buttons,
@@ -12,5 +14,5 @@ end %>
             collection: Console.all,
             legend_tag: false,
             :label_method => lambda { |b| "#{cl_image_tag(b.picture.key, width: 50,)} #{b.name}".html_safe } %>
-<%= f.submit "Choissiez une console", class: 'consolebut' %>
+<%= f.submit "Choisissez une console", class: 'consolebut' %>
 <%end%>

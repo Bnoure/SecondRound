@@ -1,9 +1,7 @@
-<% content_for :overflow do
-  " overflowHidden"
-end %>
+
 
 <div class="test-container" data-controller="flip" data-flip-battle-id-value="<%=@battle.id%>">
-  <button class= "xbtn-b">  FINSIH HIM </button>
+  <button class= "xbtn-b-battle">  FINSIH HIM </button>
   <div class="swiper-container" data-flip-target="swiper1" data-flip-games1="<%= @first_games.map(&:id).join(',') %>">
     <div class="swiper-wrapper">
 
@@ -27,11 +25,11 @@ end %>
       <% end %>
     </div>
   </div>
-  <button class= "xbtn-b">  FINSIH HIM </button>
+  <button class= "xbtn-b-battle">  FINSIH HIM </button>
   <div id="game-modal" class="game-modal">
     <img id="game-modal-image" src="" alt="Game image" class="game-modal-image">
     <h1 id="game-modal-title" class="game-modal-title"></h1>
-    <%= link_to "Coucou", "", data: { flip_target: "link" } %>
+    <%= link_to "Rechercher ce jeu", "",class:"battlefinish",data: { flip_target: "link" } %>
   </div>
   <div id="modal-backdrop"></div>
 </div>

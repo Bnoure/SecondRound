@@ -3,7 +3,6 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 10px;
-  padding-top: 70px;
 }
 
 .category-item {
@@ -28,7 +27,7 @@
   padding: 10px 10px 30px 10px;
   border: 2px solid #000;
   border-radius: 4px;
-  background-color: #416d19;
+  background-color: rgba(255, 255, 255, 0.2);
   box-shadow: 5px 5px 0px #000;
   transition: all 0.3s ease;
 }
@@ -45,7 +44,7 @@
 
 .category-selector:checked + label {
   color: black;
-  background-color: white; // Changez la couleur de fond en blanc lorsque le bouton radio est sélectionné
+  background-color: #0e6b0e; // Changez la couleur de fond en blanc lorsque le bouton radio est sélectionné
   box-shadow: none;
   transform: translateY(4px);
 }
@@ -135,25 +134,29 @@
 }
 
 .consolebut {
-  border: 1px solid transparent;
-  position: relative;
-  left: 165px;
-  top: 24px;
-
-  background: linear-gradient(140deg, #4b76c8 0%, #1f4691 100%);
-  border-radius: 2em;
-  box-shadow: inset 0px 0px 5px rgba(17, 17, 17, 0);
+  font-family: monospace;
+  font-size: 12px;
+  color: #fafafa;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 2px solid #fafafa;
+  background: #252525;
+  box-shadow: 3px 3px #fafafa;
+  cursor: pointer;
+  margin: 35px 0;
+  width: 50%;
+  margin-left: 90px;
+  margin-top: 17px;
+  text-align: center;
 }
-
-.consolebut:hover {
-  box-shadow: inset 0px 0px 5px rgba(17, 17, 17, 0.6);
-  border: 1px solid rgba(26, 26, 26, 0.5);
-  color: rgba(255, 255, 255, 0.5);
+.consolebut:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
 }
 
 .category-selector + label:last-of-type {
   position: relative;
-  top: 50px;
 }
 
 .jeu {
@@ -179,6 +182,11 @@
   cursor: pointer;
   margin: 35px 0;
   width: 50%;
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: bold;
+  }
 }
 .jeu:active {
   box-shadow: none;
@@ -207,4 +215,55 @@
   -webkit-transition-delay: 0.4s;
   transition-delay: 0.4s;
   transform: scale(1.2); // Ajoutez cette ligne
+}
+
+.battle-title {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.battlefinish {
+  display: inline-block;
+  font-family: monospace;
+  font-size: 12px;
+  color: #fafafa;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 2px solid #fafafa;
+  background: #252525;
+  box-shadow: 3px 3px #fafafa;
+  cursor: pointer;
+  margin: 35px 0;
+  width: 77%;
+  margin-left: 25px;
+  margin-top: 17px;
+  text-align: center;
+  text-decoration: none;
+}
+.battlefinish :active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+#game-modal-title {
+  font-size: 20px;
+  color: black;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.xbtn-b-battle {
+  text-decoration: none;
+  font-family: Roboto, sans-serif;
+  font-weight: 900;
+  font-size: 1em;
+  color: white;
+  background: linear-gradient(126deg, #cc0000e2 0%, #8f0303d1 74%);
+  padding: 6px;
+  border: double #d10000 2px;
+  /* box-shadow: black 3px 1px 25px -1px; */
+  border-radius: 0.25em;
 }

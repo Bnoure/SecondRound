@@ -284,11 +284,3 @@ animalcrossing.picture.purge if animalcrossing.picture.attached?
 animalcrossing.picture.attach(io: file, filename: "animalcrossing.jpg", content_type: "image/jpg")
 
 puts '30 games created'
-
-
-
-Booking.create!(game: alex, user: xavier, status: 1)
-Booking.create!(game: barbie, user: emma, status: 1)
-Booking.create!(game: final, user: nour, status: 1)
-
-puts '3 bookings created'
