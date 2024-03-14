@@ -1,4 +1,4 @@
-<div data-controller="game-photo loader" class="container d-flex flex-column justify-content-center align-items-center border rounded-4 mb-4 p-3 bg-dark-l mt-4 pt-5">
+<div data-controller="game-photo loader" data-game-photo-target="container" class="container d-flex flex-column justify-content-center align-items-center border rounded-4 mb-4 p-3 bg-dark-l mt-4 pt-5">
     <div class="loading d-none" data-controller="get-game-infos" data-loader-target="loader" data-get-game-infos-game-uuid-value="<%= @game_uuid %>">
       <img src="http://a.top4top.net/p_1990j031.gif" alt="Loading">
       <div class="ring">Loading
@@ -17,27 +17,27 @@
                       class: "form-select-new-game",
                     } %>
       </div>
-      <div class="game-photo-input my-5" data-game-photo-target="button">
+      <div class="game-photo-input mb-5" data-game-photo-target="button">
         <%= f.input :game_user_photo,
                     as: :file,
                     label: "Prendre une photo",
-                    label_html: { class: "fs-2" },
+                    label_html: { class: "fs-2 button-photo-ok" },
                     input_html: {
                       id: "game_user_photo",
                       capture: "environment",
                       accept: "image/*",
-                      class: "game-photo-button",
+                      class: "game-photo-button button-photo-ok",
                       data: { action: "change->game-photo#displayPhoto" }
                     }
         %>
         <%= f.input :game_uuid, as: :hidden, input_html: { value: @game_uuid } %>
       </div>
       <img src="" alt="" class="picture-game d-none m-4 rounded-4 border" id="preview">
-      <div class="button-photo d-flex justify-content-start">
+      <div class="buttons-photo d-flex justify-content-start flex-column-reverse">
         <div class="d-none"  data-action="click->game-photo#retake", data-game-photo-target="retake">
-          <%= link_to "Reprendre une photo", class: "retake" %>
+          <i class=" icon-camera fa-solid fa-camera fa-xl" style="color: #ffffff;"><%= link_to "Reprendre une photo", class: "retake" %></i>
         </div>
-        <%= f.submit "Ok", data: {game_photo_target: "submit"}, class: "d-none" %>
+        <%= f.submit "Ok", data: {game_photo_target: "submit"}, class: "button-photo-ok d-none" %>
       </div>
     <% end %>
 </div>
