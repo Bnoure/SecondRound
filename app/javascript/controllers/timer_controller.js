@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   timer() {
-    const lasttime = new Date(this.limitDateValue).toISOString()
+    const lasttime = this.limitDateValue.replace(/(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")
     const createdDate = this.createdDateValue
     const dategood = new Date(lasttime)
 
