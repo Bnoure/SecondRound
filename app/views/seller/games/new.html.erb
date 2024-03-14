@@ -1,6 +1,12 @@
-<div data-controller="game-photo" class="container d-flex flex-column justify-content-center align-items-center border rounded-4 mb-4 p-3 bg-dark-l mt-4 pt-5">
+<div data-controller="game-photo loader" class="container d-flex flex-column justify-content-center align-items-center border rounded-4 mb-4 p-3 bg-dark-l mt-4 pt-5">
+    <div class="loading d-none" data-controller="get-game-infos" data-loader-target="loader" data-get-game-infos-game-uuid-value="<%= @game_uuid %>">
+      <img src="http://a.top4top.net/p_1990j031.gif" alt="Loading">
+      <div class="ring">Loading
+        <span></span>
+      </div>
+    </div>
     <h1 class="text-white" data-game-photo-target="title">Ajouter un jeu</h1>
-    <%= simple_form_for [:seller, @game] do |f| %>
+    <%= simple_form_for [:seller, @game], html: { data: { action: "turbo:submit-start->loader#display" } } do |f| %>
       <div class="game-input" data-game-photo-target="form">
         <%= f.label :store_id, "Choisis ta boutique",
         class: "mb-3 fs-5"%>
@@ -24,6 +30,7 @@
                       data: { action: "change->game-photo#displayPhoto" }
                     }
         %>
+        <%= f.input :game_uuid, as: :hidden, input_html: { value: @game_uuid } %>
       </div>
       <img src="" alt="" class="picture-game d-none m-4 rounded-4 border" id="preview">
       <div class="button-photo d-flex justify-content-start">
