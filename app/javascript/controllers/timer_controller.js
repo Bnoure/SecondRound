@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   timer() {
-    const lasttime = this.limitDateValue
+    const lasttime = new Date(this.limitDateValue).toISOString()
     const createdDate = this.createdDateValue
     const dategood = new Date(lasttime)
 
