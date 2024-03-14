@@ -9,7 +9,7 @@ end %>
 
       <% @first_games.each_with_index do |first_game, index| %>
         <div class="swiper-slide card" style="--i:<%= index + 1 %>" data-flip-target="card" data-flip-target="image" data-game-id="<%= first_game.id %>" data-game-name="<%= first_game.title %>">
-          <img src="<%= url_for(first_game.picture) %>" alt="" data-flip-target="image">
+          <%= cl_image_tag(first_game.picture.key), data:{flip_target:"image"} %>
         </div>
       <% end %>
     </div>
@@ -22,7 +22,7 @@ end %>
 
       <% @second_games.each_with_index do |second_game, index| %>
         <div class="swiper-slide card" style="--i:<%= index + 1 %>" data-flip-target="card" data-flip-target="image" data-game-id="<%= second_game.id %>" data-game-name="<%= second_game.title %>">
-          <img src="<%= url_for(second_game.picture) %>" alt="" data-flip-target="image">
+           <%= cl_image_tag(second_game.picture.key), data:{flip_target:"image"} %>
         </div>
       <% end %>
     </div>
