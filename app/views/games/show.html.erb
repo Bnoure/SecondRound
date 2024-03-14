@@ -1,5 +1,3 @@
-
-
 <div class="container">
   <h1 class="text-light"><%= @game.title %></h1>
   <div class="d-flex justify-content-center mt-4 ">
@@ -17,7 +15,7 @@
 </div>
   </div>
   <div class="container select">
-  <div class="container-fluid d-flex justify-content-between">
+  <div class="container-fluid d-flex justify-content-around">
     <% if @game.store.user != current_user %>
   <%= link_to "A",  game_bookings_path(@game),  class: "xbtn-a", data: {
     turbo_method: :post,
@@ -28,15 +26,15 @@
   <p><strong><%= @game.price %></strong> € seulement</p>
   <%= link_to "B", store_path(@game.store), class: "xbtn-b" %>
   <% else %>
-  <div class="d-flex justify-content-between">
-    <%= link_to  edit_seller_game_path(@game) do %>
+  <div class="d-flex gap-5">
+    <%= link_to  edit_seller_game_path(@game), class:'d-block' do %>
       <i class="fa-solid fa-pencil fa-2x" style="color: #ffffff;"></i>
     <% end %>
-  <%= link_to seller_game_path(@game), data: {turbo_method: :delete,
+  <%= link_to seller_game_path(@game),class:'d-block', data: {turbo_method: :delete,
                                                 confirm: "Are you sure?" } do %>
       <i class="fa-solid fa-trash fa-2x" style="color: #ffffff;"></i>
     <% end %>
-    <% end %>
   </div>
+    <% end %>
   </div>
 </div>

@@ -9,7 +9,7 @@
     <div class="game-infos">
       <h2 class="battleT"><%= battle.winning_game.title %></h2>
       <p>
-        <%= cl_image_tag battle.winning_game.console.picture.key, class: "console-photo #{"console-system" if battle.winning_game.console.name == "master system"}" %>
+        <%= cl_image_tag battle.winning_game.console.picture.key, class: "console-photo #{"console-system" if battle.winning_game.console.name == "Master System"}" %>
       </p>
       <p><strong><%= battle.winning_game.updated_at.strftime('%d/%m/%Y') %></strong></p>
     </div>

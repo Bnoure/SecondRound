@@ -65,7 +65,7 @@ ps1.picture.attach(io: file, filename: "PS1.jpg", content_type: "image/png")
 url = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Master_System_Logo.svg/345px-Master_System_Logo.svg.png"
 file =  URI.open(url)
 
-master_system = Console.create!(name: 'Master system')
+master_system = Console.create!(name: 'Master System')
 master_system.picture.purge if master_system.picture.attached?
 master_system.picture.attach(io: file, filename: "Master_system.jpg", content_type: "image/png")
 
@@ -146,7 +146,7 @@ teken3.picture.attach(io: file, filename: "teken3.jpg", content_type: "image/jpg
 
 url = "https://image.jeuxvideo.com/medias-sm/163707/1637067503-1899-jaquette-avant.png"
 file = URI.open(url)
-rocket = Game.create!(title: 'Rocket league', category: 'Course', price: 15, console: switch, description: "", year: 1980, condition: Game::CONDITIONS.sample, store_id: stores.sample.id)
+rocket = Game.create!(title: 'Rocket league', category: 'Course', price: 15, console: switch, description: "Jeu de d'action et de sport, Rocket League vous plonge dans dans des matchs d'arène où votre but sera de marquer des buts. Vous pourrez mettre au point différentes tactiques, soit éviter les attaques des joueurs ennemis pour aller marquer, soit démolir la défense.", year: 2015, condition: Game::CONDITIONS.sample, store_id: stores.sample.id)
 rocket.picture.purge if rocket.picture.attached?
 rocket.picture.attach(io: file, filename: "rocket.jpg", content_type: "image/jpg")
 
