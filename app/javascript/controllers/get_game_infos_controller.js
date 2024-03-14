@@ -7,9 +7,10 @@ export default class extends Controller {
     gameUuid: String
   }
   connect() {
+    console.log(this.gameUuidValue)
     this.channel = createConsumer().subscriptions.create(
       { channel: "GetGameInfosChannel", game_uuid: this.gameUuidValue },
-      { received: data => window.location.href = `/seller/games/${data.game.id}/edit` }
+      { received: data => window.location.href = `/seller/games/${data.gameId}/edit` }
     )
   }
 }

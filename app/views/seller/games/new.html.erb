@@ -1,6 +1,9 @@
 <div data-controller="game-photo loader" class="container d-flex flex-column justify-content-center align-items-center border rounded-4 mb-4 p-3 bg-dark-l mt-4 pt-5">
     <div class="loading d-none" data-controller="get-game-infos" data-loader-target="loader" data-get-game-infos-game-uuid-value="<%= @game_uuid %>">
       <img src="http://a.top4top.net/p_1990j031.gif" alt="Loading">
+      <div class="ring">Loading
+        <span></span>
+      </div>
     </div>
     <h1 class="text-white" data-game-photo-target="title">Ajouter un jeu</h1>
     <%= simple_form_for [:seller, @game], html: { data: { action: "turbo:submit-start->loader#display" } } do |f| %>
