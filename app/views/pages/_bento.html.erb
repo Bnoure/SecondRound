@@ -58,8 +58,36 @@
         </div>
       </div>
       <dialog id="dialog" data-modal-target="dialog">
-        <h2>Hello.</h2>
-        <p >HOLLLA</p>
+        <h2 class="text-center">Hello</h2>
+        <p >Voici notre team de l'enfer: </p>
+        <div class="image-ensemble">
+        <%= image_tag "insieme.png" %>
+        </div>
+        <p>Avec: </p>
+        <div class="image-nous d-flex flex-column">
+          <div class="d-flex mb-4 justify-content-center">
+            <div class="mx-3">
+              <%= image_tag "Emma.png", class: "rounded-circle" %>
+              <p>Emma</p>
+            </div>
+
+            <div class="mx-3">
+              <%= image_tag "Nour.png" %>
+              <p>Nour</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <div class="mx-3">
+              <%= image_tag "Xavier.png" %>
+              <p>Xavier</p>
+            </div>
+
+            <div class="mx-3">
+              <%= image_tag "Romain.png" %>
+              <p>Romain</p>
+            </div>
+          </div>
+        </div>
         <button data-action="click->modal#close" aria-label="close" class="x">❌</button>
       </dialog>
 
