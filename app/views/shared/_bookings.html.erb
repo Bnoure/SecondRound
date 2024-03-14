@@ -1,0 +1,21 @@
+  <%bookings.each do |booking|%>
+    <div class="card-store-booking">
+        <%= cl_image_tag booking.game.picture.key, class: "store-photo" %>
+        <div class="card-store-infos">
+          <h2><%=booking.game.title%></h2>
+          <p class="font-min"> Réservé le : <%=booking.created_at.strftime('%d/%m/%Y')%></p>
+          <p class="font-min"> Date limite : <%=booking.limit_date.strftime('%d/%m/%Y') %></p>
+          <p class="booking-<%= booking.status %> text-center" text-center><%= booking.status_string %></p>
+        </div>
+      </div>
+      <% if booking.pending? && booking.game.game_owner?(current_user) %>
+      <div class="d-flex justify-content-around" >
+        <%= link_to seller_booking_path(booking, status: "done"),class:"xbtn-a", data:{turbo_method: :patch,} do %>
+          <i class="fa-solid fa-check fa-lg" style="color: #ffffff;"></i>
+        <% end %>
+        <%= link_to seller_booking_path(booking, status: "rejected"),class:"xbtn-b", data:{turbo_method: :patch,} do %>
+      <i class="fa-solid fa-trash fa-lg" style="color: #ffffff;"></i>
+    <% end %>
+      </div>
+      <% end %>
+  <%end %>

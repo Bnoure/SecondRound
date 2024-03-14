@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_13_145459) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_14_131650) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,10 +73,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_13_145459) do
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.string "category"
-    t.integer "price"
+    t.integer "price", default: 0
     t.text "description"
     t.integer "year"
-    t.string "condition"
+    t.string "condition", default: "Neuf"
     t.bigint "store_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

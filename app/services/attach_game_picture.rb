@@ -14,7 +14,7 @@ class AttachGamePicture
   private
 
   def search_game(name)
-    url = "https://www.giantbomb.com/api/search/?api_key=#{@api_key}&format=json&query=#{name}&resources=game"
+    url = "https://www.giantbomb.com/api/search/?api_key=#{@api_key}&format=json&query=#{CGI::escape(name)}&resources=game"
     response = HTTParty.get(url)
     data = JSON.parse(response.body)
     data.dig("results", 0, "image", "medium_url")
