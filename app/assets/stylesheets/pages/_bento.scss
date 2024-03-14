@@ -281,3 +281,25 @@
   border: 1px solid rgba(26, 26, 26, 0.5);
   color: rgba(255, 255, 255, 0.5);
 }
+
+.image-ensemble {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 5px #416d19;
+  }
+}
+
+.image-nous {
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 5px #262c21;
+  }
+}
