@@ -1,6 +1,8 @@
 <div data-controller="game-photo" class="container d-flex flex-column justify-content-center align-items-center border rounded-4 mb-4 p-3 bg-dark-l mt-4 pt-5">
   <h1 class="text-white">Ajouter un jeu</h1>
-  <%= simple_form_for [:seller, @game] do |f| %>
+  <%= simple_form_for [:seller, @game], html: {
+    class: "form-new-game"
+  } do |f| %>
     <div class="game-input">
       <%= f.label :store_id, "Choisis ta boutique",
       class: "mb-3 fs-5"%>
@@ -8,7 +10,7 @@
                   collection: current_user.stores,
                   label: false,
                   input_html: {
-                    class: "",
+                    class: "form-select-new-game",
                   } %>
     </div>
     <div class="game-photo-input my-5">
