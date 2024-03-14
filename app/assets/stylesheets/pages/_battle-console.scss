@@ -140,7 +140,7 @@
   border: 1px solid transparent;
   position: relative;
   top: 24px;
-  left: 85px;
+  // left: 85px;
   /* bottom: 106px; */
   height: 68px;
   background: linear-gradient(140deg, #4b76c8 0%, #1f4691 100%);
@@ -152,4 +152,9 @@
   box-shadow: inset 0px 0px 5px rgba(17, 17, 17, 0.6);
   border: 1px solid rgba(26, 26, 26, 0.5);
   color: rgba(255, 255, 255, 0.5);
+}
+
+.category-selector + label:last-of-type {
+  position: relative;
+  top: 50px;
 }

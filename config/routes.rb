@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'pages/xavier'
   get 'pages/dashboard'
 
-  resources :battles, only: [:index, :show, :new, :create, :edit] do
+  resources :battles, only: [:index, :show, :new, :create, :edit, :destroy] do
     patch 'set_winner', on: :member
   end
 
