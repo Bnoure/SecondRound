@@ -5,13 +5,10 @@ export default class extends Controller {
   static targets = [ "inputLocation", "outputLocation", "locationDot" ]
 
   connect() {
-    console.log("Hello, Stimulus!");
     this.search()
   }
 
   inputEnable(event) {
-    console.log("inputEnable")
-    console.log(event.currentTarget)
     this.inputLocationTarget.classList.add("inputGroup");
     this.locationDotTarget.classList.add("d-none");
   }
@@ -22,33 +19,41 @@ export default class extends Controller {
       maximumAge: 10000,
       timeout: 5000
     }
-    console.log("search")
-    const test = navigator.geolocation.getCurrentPosition(this.success.bind(this), this.error, options);
-    console.log(test)
-    console.log(this.element)
+    const locData = localStorage.getItem("locData")
+    if (locData) {
+      const locDataParsed = JSON.parse(locData)
+      this.#setFullAddress(locDataParsed)
+    } else {
+      navigator.geolocation.getCurrentPosition(this.success.bind(this), this.error, options);
+    }
     this.inputLocationTarget.classList.remove("inputGroup");
     this.locationDotTarget.classList.remove("d-none");
   }
 
   success(pos) {
-    console.log(pos.coords);
     const crd = pos.coords;
+    const locData = {
+      latitude: pos.coords.latitude,
+      longitude: pos.coords.longitude
+    }
 
-    const url = `/location?latitude=${crd.latitude}&longitude=${crd.longitude}`
+    localStorage.setItem("locData", JSON.stringify(locData))
 
-    fetch(url)
-    .then(response => response.json())
-    .then((data) => {
-      console.log(data);
-      const address = data.final_address;
-      this.outputLocationTarget.value = address;
-    });
-    // redirect with coordinates in params
-    // location.assign(`/locations/?place=${crd.latitude},${crd.longitude}`)
-    // location.assign(`/locations/?coordinates=${crd.latitude},${crd.longitude}`)
+    this.#setFullAddress(crd)
   }
 
   error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
+  }
+
+  #setFullAddress(locData) {
+    const url = `/location?latitude=${locData.latitude}&longitude=${locData.longitude}`
+
+    fetch(url)
+    .then(response => response.json())
+    .then((data) => {
+      const address = data.final_address;
+      this.outputLocationTarget.value = address;
+    });
   }
 }
