@@ -18,13 +18,19 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.element,
       center: [this.markerValue.lng, this.markerValue.lat],
-      style: "mapbox://styles/emmapuget/cltmvmi0900nx01nr38jm10gq",
+      style: "mapbox://styles/mapbox/standard",
       zoom: 17
     })
 
     this.map.on('load', () => {
-        navigator.geolocation.getCurrentPosition(this.success.bind(this), this.error, options);
-    })
+        const locData = localStorage.getItem("locData")
+        if (locData) {
+          const locDataParsed = JSON.parse(locData)
+          this.getRoute(locDataParsed)
+        } else {
+          navigator.geolocation.getCurrentPosition(this.success.bind(this), this.error, options);
+        }
+      })
   };
 
   success(pos) {
