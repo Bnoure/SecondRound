@@ -11,7 +11,7 @@ export default class extends Controller {
   clickCount = 0;
 
   connect() {
-    console.log(this.battleIdValue)
+
 
 
 
