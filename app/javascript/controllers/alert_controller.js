@@ -16,7 +16,7 @@ export default class extends Controller {
     event.preventDefault(); // Prevent the form to be submited after the submit button has been clicked
     Swal.fire({
       title: "Réserver ce jeu ?",
-      text: "Le vendeur sera alerter de votre réservation, n'oubliez pas d'aller chercher le jeu !",
+      text: "Le vendeur sera alerté de votre réservation, n'oubliez pas d'aller chercher le jeu !",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",

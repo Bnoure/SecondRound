@@ -43,7 +43,7 @@
 }
 
 .category-selector:checked + label {
-  color: black;
+  color: white;
   background-color: #0e6b0e; // Changez la couleur de fond en blanc lorsque le bouton radio est sélectionné
   box-shadow: none;
   transform: translateY(4px);
