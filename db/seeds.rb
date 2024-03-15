@@ -283,4 +283,91 @@ animalcrossing = Game.create!(title: 'Animal Crossing : New Horizons', category:
 animalcrossing.picture.purge if animalcrossing.picture.attached?
 animalcrossing.picture.attach(io: file, filename: "animalcrossing.jpg", content_type: "image/jpg")
 
-puts '30 games created'
+url = "https://image.jeuxvideo.com/medias-sm/166671/1666707428-6189-jaquette-avant.jpg"
+file = URI.open(url)
+bayonetta3 = Game.create!(title: "Bayonet 3", category: "Action", price: 25, console: switch, description: "Bayonetta 3 est un jeu d'action sur Switch. Vous incarnez Bayonetta, une sorcière qui doit combattre des anges et des démons pour sauver le monde. Le titre propose un gameplay nerveux et des combats spectaculaires.", year: 2022, condition: Game::CONDITIONS.sample, store_id: stores.sample.id)
+bayonetta3.picture.purge if bayonetta3.picture.attached?
+bayonetta3.picture.attach(io: file, filename: "bayonetta3.jpg", content_type: "image/jpg")
+
+
+url = "https://image.jeuxvideo.com/medias-sm/163247/1632474948-9368-jaquette-avant.jpg"
+file = URI.open(url)
+disco = Game.create!(title: "Disco Elysium", category: "RPG", price: 28, console: switch, description: "Disco Elysium est un jeu de rôle sur Switch. Vous incarnez un détective amnésique qui doit résoudre une affaire de meurtre dans une ville en proie à la corruption. Le titre propose un gameplay basé sur les dialogues et des choix moraux qui influent sur le déroulement de l'aventure.", year: 2019, condition: Game::CONDITIONS.sample, store_id: stores.sample.id)
+disco.picture.purge if disco.picture.attached?
+disco.picture.attach(io: file, filename: "disco.jpg", content_type: "image/jpg")
+
+url = "https://image.jeuxvideo.com/medias-sm/165287/1652867990-6703-jaquette-avant.jpg"
+file = URI.open(url)
+ori = Game.create!(title: "Ori and the blind forest", category: "Plateforme", price: 20, console: switch, description: "Ori and the Blind Forest est un jeu de plates-formes sur Switch. Vous incarnez Ori, une créature qui doit sauver la forêt de Nibel de la destruction. Le titre propose un gameplay basé sur l'exploration et des énigmes à résoudre.", year: 2015, condition: Game::CONDITIONS.sample, store_id: stores.sample.id)
+ori.picture.purge if ori.picture.attached?
+ori.picture.attach(io: file, filename: "ori.jpg", content_type: "image/jpg")
+
+url = "https://image.jeuxvideo.com/medias-sm/163058/1630582633-2607-jaquette-avant.jpg"
+file = URI.open(url)
+divinity = Game.create!(title: "Divinity : Original Sin 2", category: "RPG", price: 30, console: switch, description: "Divinity : Original Sin 2 est un jeu de rôle sur Switch. Vous incarnez un aventurier qui doit sauver le monde de Rivellon de la menace des Dieux. Le titre propose un gameplay basé sur les dialogues et des combats tactiques au tour par tour.", year: 2017, condition: Game::CONDITIONS.sample, store_id: stores.sample.id)
+divinity.picture.purge if divinity.picture.attached?
+divinity.picture.attach(io: file, filename: "divinity.jpg", content_type: "image/jpg")
+
+url = "https://image.jeuxvideo.com/medias-sm/163058/1630582633-2607-jaquette-avant.jpg"
+file = URI.open(url)
+marioodyssey = Game.create!(title: "Super Mario Odyssey", category: "Plateforme", price: 40, console: switch, description: "Super Mario Odyssey est un jeu de plates-formes sur Switch. Mario doit parcourir différents royaumes pour sauver la princesse Peach des griffes de Bowser. Le titre propose un gameplay basé sur l'exploration et des énigmes à résoudre.", year: 2017, condition: Game::CONDITIONS.sample, store_id: stores.sample.id)
+marioodyssey.picture.purge if marioodyssey.picture.attached?
+marioodyssey.picture.attach(io: file, filename: "marioodyssey.jpg", content_type: "image/jpg")
+
+url = "https://media.senscritique.com/media/000016542243/300/wonder_boy_iii_the_dragon_s_trap.jpg"
+file = URI.open(url)
+wonderboy = Game.create!(title: "Wonder Boy III: The Dragon's Trap", category: "Plateforme", price: 20, console: master_system, description: "Reprenant l'aventure directement à la fin de Wonder Boy in Monster Land, le troisième volet sur SEGA MASTER SYSTEM de cette série mythique voit notre héros partir à la recherche de la Croix de la Salamandre. Cet artéfact est le seul moyen de faire lever la malédiction qui le transforme en diverses créatures.", year: 1989, condition: Game::CONDITIONS.sample, store_id: stores.sample.id)
+wonderboy.picture.purge if wonderboy.picture.attached?
+wonderboy.picture.attach(io: file, filename: "wonderboy.jpg", content_type: "image/jpg")
+
+url = "https://media.senscritique.com/media/000006884835/300/phantasy_star.jpg"
+file = URI.open(url)
+phantasy_star = Game.create!(title: "Phantasy Star", category: "RPG", price: 20, console: master_system, description: "Phantasy Star est un jeu de rôle sur Master System. Vous incarnez Alis, une jeune femme qui doit sauver le monde d'Algol de la menace de Dark Falz. Le titre propose un gameplay basé sur l'exploration et des combats au tour par tour.", year: 1987, condition: Game::CONDITIONS.sample, store_id: stores.sample.id)
+phantasy_star.picture.purge if phantasy_star.picture.attached?
+phantasy_star.picture.attach(io: file, filename: "phantasy_star.jpg", content_type: "image/jpg")
+
+url = "https://media.senscritique.com/media/000020707024/300/psycho_fox.png"
+file = URI.open(url)
+psycho_fox = Game.create!(title: "Psycho Fox", category: "Plateforme", price: 20, console: master_system, description: "Psycho Fox est un jeu de plates-formes sur Master System. Vous incarnez Psycho Fox, un renard qui doit sauver le monde de la menace de Madfox. Le titre propose un gameplay basé sur l'exploration et des énigmes à résoudre.", year: 1989, condition: Game::CONDITIONS.sample, store_id: stores.sample.id)
+psycho_fox.picture.purge if psycho_fox.picture.attached?
+psycho_fox.picture.attach(io: file, filename: "psycho_fox.jpg", content_type: "image/jpg")
+
+
+url = "https://media.senscritique.com/media/000004546349/300/lemmings.jpg"
+file = URI.open(url)
+lemmings = Game.create!(title: "Lemmings", category: "Puzzle", price: 20, console: master_system, description: "Lemmings est un jeu de réflexion sur Master System. Vous devez guider des lemmings à travers des niveaux en leur assignant des tâches pour les sauver. Le titre propose un gameplay basé sur la résolution d'énigmes.", year: 1991, condition: Game::CONDITIONS.sample, store_id: stores.sample.id)
+lemmings.picture.purge if lemmings.picture.attached?
+lemmings.picture.attach(io: file, filename: "lemmings.jpg", content_type: "image/jpg")
+
+url = "https://media.senscritique.com/media/000019915094/300/outrun.jpg"
+file = URI.open(url)
+outrun = Game.create!(title: "Out Run", category: "Course", price: 20, console: master_system, description: "Out Run est un jeu de course sur Master System. Vous devez parcourir des circuits à bord de votre voiture pour atteindre la ligne d'arrivée. Le titre propose un gameplay basé sur la vitesse et la précision.", year: 1987, condition: Game::CONDITIONS.sample, store_id: stores.sample.id)
+outrun.picture.purge if outrun.picture.attached?
+outrun.picture.attach(io: file, filename: "outrun.jpg", content_type: "image/jpg")
+
+url = "https://media.senscritique.com/media/000000053726/300/time_soldiers.jpg"
+file = URI.open(url)
+time_soldiers = Game.create!(title: "Time Soldiers", category: "Action", price: 20, console: master_system, description: "Time Soldiers est un jeu d'action sur Master System. Vous incarnez un soldat qui doit voyager à travers différentes époques pour sauver le monde. Le titre propose un gameplay basé sur l'action et la précision.", year: 1987, condition: Game::CONDITIONS.sample, store_id: stores.sample.id)
+time_soldiers.picture.purge if time_soldiers.picture.attached?
+time_soldiers.picture.attach(io: file, filename: "time_soldiers.jpg", content_type: "image/jpg")
+
+url = "https://media.senscritique.com/media/000000069411/300/golden_axe_warrior.jpg"
+file = URI.open(url)
+golden_axe_warrior = Game.create!(title: "Golden Axe Warrior", category: "Action, Aventure", price: 20, console: master_system, description: "Golden Axe Warrior est un jeu d'action-aventure sur Master System. Vous incarnez un guerrier qui doit sauver le monde de la menace de Death Adder. Le titre propose un gameplay basé sur l'exploration et des combats au tour par tour.", year: 1991, condition: Game::CONDITIONS.sample, store_id: stores.sample.id)
+golden_axe_warrior.picture.purge if golden_axe_warrior.picture.attached?
+golden_axe_warrior.picture.attach(io: file, filename: "golden_axe_warrior.jpg", content_type: "image/jpg")
+
+url = "https://media.senscritique.com/media/000021494492/300/r_c_grand_prix.webp"
+file = URI.open(url)
+r_c_grand_prix = Game.create!(title: "R.C. Grand Prix", category: "Course", price: 20, console: master_system, description: "R.C. Grand Prix est un jeu de course sur Master System. Vous devez parcourir des circuits à bord de votre voiture pour atteindre la ligne d'arrivée. Le titre propose un gameplay basé sur la vitesse et la précision.", year: 1988, condition: Game::CONDITIONS.sample, store_id: stores.sample.id)
+r_c_grand_prix.picture.purge if r_c_grand_prix.picture.attached?
+r_c_grand_prix.picture.attach(io: file, filename: "r_c_grand_prix.jpg", content_type: "image/jpg")
+
+url = "https://media.senscritique.com/media/000019084754/300/populous.png"
+file = URI.open(url)
+populous = Game.create!(title: "Populous", category: "Stratégie temps réel", price: 25, console: master_system, description: "Populous sur est un jeu de stratégie qui vous propose de vous mettre dans la peau du Créateur. Commandez une civilisation et venez à bout des populations sous la joute de dieux adverses.", year: 1989, condition: Game::CONDITIONS.sample, store_id: stores.sample.id)
+populous.picture.purge if r_c_grand_prix.picture.attached?
+populous.picture.attach(io: file, filename: "populous.png", content_type: "image/jpg")
+
+
+puts "games created"

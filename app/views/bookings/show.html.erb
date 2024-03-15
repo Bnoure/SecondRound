@@ -2,7 +2,7 @@
   <div class="border rounded-4 mb-4 p-3 bg-dark opacity-75 mt-4">
     <div class="container-fluid">
       <h1 class="text-light mb-4">You Won</h1>
-      <p>Votre Réservation de : <span class="text-success fw-bold fs-5"><%= @booking.game.title %></span> a bien été effectuée. <br><br>
+      <p>Votre Réservation de : <span class="text-success fw-bold fs-5"><%= @booking.game.title %></span> chez : <span class="text-light fw-bold fs-5"><%= @booking.game.store.name %></span>  a bien été effectuée. <br><br>
       Vous avez jusqu'au <%= @booking.limit_date.strftime('%d/%m/%Y') %> pour venir le récupérer au : <br> <br>  <%=@booking.game.store.address %></p>
     </div>
   </div>
