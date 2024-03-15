@@ -8,8 +8,10 @@ puts 'Database cleaned'
 puts 'Creating users...'
 nour = User.create!(first_name: 'Nour', last_name: 'Eddine', role: 1, email: 'test@test.com', password: 123456)
 xavier = User.create!(first_name: 'Xavier', last_name: 'Lefaou', role: 0, email: 'test2@test.com', password: 123456)
-emma = User.create!(first_name: 'Emma', last_name: 'Puget', role: 1, email: 'test3@test.com', password: 123456)
+emma = User.create!(first_name: 'Emma', last_name: 'Puget', role: 0, email: 'test3@test.com', password: 123456)
 puts '3 users created'
+
+
 
 puts 'Creating stores...'
 url = "https://lh3.googleusercontent.com/p/AF1QipMQZqGJFf6q7lrYqf4ITA1EcMMQoA6TkG8l9NPF=s1360-w1360-h1020"
@@ -371,3 +373,6 @@ populous.picture.attach(io: file, filename: "populous.png", content_type: "image
 
 
 puts "games created"
+
+
+Booking.create!(user: emma, game: Game.first)
