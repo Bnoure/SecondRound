@@ -13,6 +13,10 @@
           <i class="fa-solid fa-gamepad"></i>
         <% end %>
       <% end %>
+    <% if current_user.first_name == "Nour"  %>
+        <a class="navbar-brand" href=""><img class="avatar-bordered" alt="avatar-bordered" src="https://avatars.githubusercontent.com/u/140494890?v=4" /></a>
+    <% else %>
       <a class="navbar-brand" href=""><img class="avatar-bordered" alt="avatar-bordered" src="https://avatars.githubusercontent.com/u/154015046?v=4" /></a>
-    </div>
+    <% end %>
+      </div>
   </nav>
