@@ -15,13 +15,14 @@ export default class extends Controller {
   initSweetalert(event) {
     event.preventDefault(); // Prevent the form to be submited after the submit button has been clicked
     Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      title: "Réserver ce jeu ?",
+      text: "Le vendeur sera alerté de votre réservation, n'oubliez pas d'aller chercher le jeu !",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Confirmer",
+      cancelButtonText: "Annuler"
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(`/games/${this.gameIdValue}/bookings`, {

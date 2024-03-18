@@ -1,5 +1,6 @@
 
 
+<h2 class="battle-title"> Sur quelle console souhaitez-vous combattre ? </h2>
 <%= simple_form_for @battle do |f| %>
 <%= f.input :console_id,
             as: :radio_buttons,
@@ -8,6 +9,7 @@
             item_wrapper_class: 'category-item',
             input_html: {class: 'category-selector'},
             collection: Console.all,
-            :label_method => lambda { |b| "#{cl_image_tag(b.picture.key, width: 50)} #{b.name}".html_safe } %>
-<%= f.submit "Select your console", class: 'btn btn-primary' %>
+            legend_tag: false,
+            :label_method => lambda { |b| "#{cl_image_tag(b.picture.key, width: 50,)} #{b.name}".html_safe } %>
+<%= f.submit "Choisissez une console", class: 'consolebut' %>
 <%end%>

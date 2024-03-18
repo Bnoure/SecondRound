@@ -3,6 +3,7 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
 
+
   static targets = ["swiper1", "swiper2", "card", "link"];
   static values = {
     battleId: Number
@@ -10,7 +11,7 @@ export default class extends Controller {
   clickCount = 0;
 
   connect() {
-    console.log(this.battleIdValue)
+
 
 
 
@@ -20,7 +21,7 @@ export default class extends Controller {
     console.log(games1, games2)
 
 
-    const buttons = document.querySelectorAll('.xbtn-b');
+    const buttons = document.querySelectorAll('.xbtn-b-battle');
     buttons[0].addEventListener('click', () => this.removeCard(games1));
     buttons[1].addEventListener('click', () => this.removeCard(games2));
   }

@@ -2,10 +2,13 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .category-item {
   flex: 0 0 30%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .category-selector {
@@ -14,49 +17,37 @@
 }
 
 .category-selector + label {
+  font-size: 20px;
   display: block;
   cursor: pointer;
   box-sizing: border-box;
   width: 100%;
-  font-size: 12px;
-  text-align: left;
+  color: white;
+  text-align: center;
   padding: 10px 10px 30px 10px;
-  border: 1px solid #eaeaea;
+  border: 2px solid #000;
   border-radius: 4px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 5px 5px 0px #000;
+  transition: all 0.3s ease;
+}
+
+.category-selector + label:hover {
+  background-color: #0e6b0e;
+  border: 2px solid #416d19;
+}
+
+.category-selector + label:hover p {
+  color: white;
+  text-shadow: 3px 3px 2px rgba(255, 255, 255, 0.363);
 }
 
 .category-selector:checked + label {
-  color: rgb(232, 11, 11) !important;
-  background-color: rgb(232, 11, 11);
+  color: white;
+  background-color: #0e6b0e; // Changez la couleur de fond en blanc lorsque le bouton radio est sélectionné
+  box-shadow: none;
+  transform: translateY(4px);
 }
-
-// #snippet_category_ruby + label {
-//   color: #fd1015;
-// }
-
-// #snippet_category_ruby:checked + label {
-//   background-color: #fd1015;
-//   border-color: #fd1015;
-// }
-
-// #snippet_category_javascript + label {
-//   color: #ffc65a;
-// }
-
-// #snippet_category_javascript:checked + label {
-//   background-color: #ffc65a;
-//   border-color: #ffc65a;
-// }
-
-// #snippet_category_css + label {
-//   color: #62ddf5;
-// }
-
-// #snippet_category_css:checked + label {
-//   background-color: #62ddf5;
-//   border-color: #62ddf5;
-// }
 
 .but {
   cursor: pointer;
@@ -99,7 +90,7 @@
 
 .paragraph {
   transform: scale(1); // Ajoutez cette ligne
-  color: red;
+  color: red; // Changez la couleur en blanc
   visibility: hidden;
   opacity: 0;
   font-size: 18px;
@@ -109,6 +100,14 @@
   transition: 0.2s linear;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.paragraph.reservation {
+  margin: -15px;
+}
+
+.category-selector:checked + label .paragraph {
+  color: black; // Changez la couleur en noir lorsque le bouton radio est sélectionné
 }
 
 .icon-wrapper {
@@ -132,4 +131,139 @@
   stroke-width: 2px;
   -webkit-transition: 0.2s linear;
   transition: 0.2s linear;
+}
+
+.consolebut {
+  font-family: monospace;
+  font-size: 12px;
+  color: #fafafa;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 2px solid #fafafa;
+  background: #252525;
+  box-shadow: 3px 3px #fafafa;
+  cursor: pointer;
+  margin: 35px 0;
+  width: 50%;
+  margin-left: 90px;
+  margin-top: 17px;
+  text-align: center;
+}
+.consolebut:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.category-selector + label:last-of-type {
+  position: relative;
+}
+
+.jeu {
+  position: relative;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  bottom: 55px;
+  left: 97px;
+  font-size: 10px;
+  text-align: center;
+}
+.jeu {
+  font-family: monospace;
+  font-size: 0.5rem;
+  color: #fafafa;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #fafafa;
+  background: #252525;
+  box-shadow: 3px 3px #fafafa;
+  cursor: pointer;
+  margin: 35px 0;
+  width: 50%;
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: bold;
+  }
+}
+.jeu:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.resa {
+  font-size: 10px;
+  margin: -25px;
+  transform: scale(1); // Ajoutez cette ligne
+
+  visibility: hidden;
+  opacity: 0;
+  font-size: 18px;
+  margin-right: 20px;
+  padding-left: 20px;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.but:hover > .resa {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+  transform: scale(1.2); // Ajoutez cette ligne
+}
+
+.battle-title {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.battlefinish {
+  display: inline-block;
+  font-family: monospace;
+  font-size: 12px;
+  color: #fafafa;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 2px solid #fafafa;
+  background: #252525;
+  box-shadow: 3px 3px #fafafa;
+  cursor: pointer;
+  margin: 35px 0;
+  width: 77%;
+  margin-left: 25px;
+  margin-top: 17px;
+  text-align: center;
+  text-decoration: none;
+}
+.battlefinish :active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+#game-modal-title {
+  font-size: 20px;
+  color: black;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.xbtn-b-battle {
+  text-decoration: none;
+  font-family: Roboto, sans-serif;
+  font-weight: 900;
+  font-size: 1em;
+  color: white;
+  background: linear-gradient(126deg, #cc0000e2 0%, #8f0303d1 74%);
+  padding: 6px;
+  border: double #d10000 2px;
+  /* box-shadow: black 3px 1px 25px -1px; */
+  border-radius: 0.25em;
 }

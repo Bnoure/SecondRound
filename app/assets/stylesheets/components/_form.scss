@@ -1,10 +1,95 @@
-.game-photo-input{
-  input{
-    display: none;
+.form-new-game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .game-photo-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    input {
+      display: none;
+    }
+    label {
+      color: white;
+      padding: 1em;
+      border-radius: 20px;
+      width: 80%;
+      text-align: center;
+    }
   }
-  label{
+
+  .buttons-photo {
+    align-items: center;
+  }
+
+  .picture-game {
+    width: 100%;
+    border: 4mm ridge rgba(255, 255, 255, 0.6);
+  }
+}
+
+.file {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-input {
+  font-family: "Segoe UI", sans-serif;
+  margin: 1em 0 0 0;
+  width: 75%;
+  max-width: 1000px;
+  position: relative;
+  color: white;
+}
+
+.form-select-new-game {
+  font-size: 100%;
+  padding: 0.8em;
+  outline: none;
+  border: 2px solid rgb(200, 200, 200);
+  background-color: transparent;
+  border-radius: 20px;
+  width: 100%;
+  color: white;
+  option {
+    color: black;
+    background-color: white;
+  }
+}
+
+.button-photo-ok {
+  font-family: "Space Grotesk", sans-serif;
+  color: #fafafa;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #fafafa;
+  background: #252525;
+  box-shadow: 3px 3px #fafafa;
+  cursor: pointer;
+  margin: 35px 0;
+  width: 50%;
+}
+
+.button-photo-ok:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.icon-camera {
+  a {
+    font-family: "Space Grotesk", sans-serif;
+    padding: 20px;
+    font-size: 1em;
+    text-decoration: none;
     color: white;
-    padding: 2em;
-    background-color: aqua;
   }
+}
+
+.seacher-input-wrapper {
+  margin-left: 14px;
 }

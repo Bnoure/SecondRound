@@ -1,27 +1,35 @@
-<div class="container pt-5">
+<div class="hello"data-controller="modal">
   <div class="row">
     <div class="wrapper">
 
-        <%= link_to new_battle_path, class: "my-btn" do %>
-  <div class="grid1">
-    <%= image_tag "vs.png", alt: "vs.png", class: "img-fluid", style: "width: 70%;" %>
-    <p style="font-weight: bold;">Lets fight </p>
-  </div>
-<% end %>
+      <%= link_to new_battle_path, class: "my-btn" do %>
+        <div class="grid1">
+
+            <div class="front">
+                <%= image_tag "vs.png", alt: "vs.png", class: "img-fluid", style: "width: 70%;" %>
+                <p style="font-weight: bold;">Lets fight </p>
+            </div>
+        </div>
+    <% end %>
 
 
 
 
 
-
-
-
-      <%= link_to battles_path, class: "my-btn grid2" do %>
+<%= link_to battles_path, class: "my-btn grid2" do %>
   <div class="shadow"></div>
   <div class="edge"></div>
-  <div class="front">
-    <%= image_tag "reservation.png", alt: "reservation.png", class: "img-fluid", style: "width: 50%;" %>
-    <p style="font-weight: bold;"> GAME </p>
+  <div class="front"> <p style="font-weight: bold;font-size: 12px;">Dernière bataille</p>
+    <p style="font-weight: bold;">
+      <% if @winning_game.present? %>
+       <%= cl_image_tag @winning_game.picture.key, style: "width: 69%; border-radius: 10px;
+    bottom: 6px;
+    position: relative;" %>
+       <%#= @last_battle.updated_at.strftime("%d/%m/%Y") %>
+      <% else %>
+        Pas de bataille effectuée
+      <% end %>
+    </p>
   </div>
 <% end %>
 
@@ -32,41 +40,67 @@
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <div class="row">
     <div class="wrapper2">
       <div class="grid3">
+
+
         <%= link_to root_path, class: "my-btn" do %>
           <div class="child1">
-            <%# <%= render 'timer',last_booking_date: @last_booking_date %> %>
+            <% if @booking_last.present? %>
+              <%= render 'timer', booking_last: @booking_last %>
+            <% else %>
+              <span class="smalltext">Pas de réservation en cours</span>
+            <% end %>
           </div>
         <% end %>
-        <%= render 'button' %>
-        <div class="child2">
+
+        <div class="child2"data-action="click->modal#open">
+          <%= render 'button' %>
         </div>
       </div>
-      <%= link_to root_path, class: "my-btn2" do %>
-        <div class="grid4">
-          <%= image_tag "reservation.png", alt: "reservation.png", class: "img-fluid", style: "width: 30%;" %>
-          <p style="font-weight: bold;">Vos réservations en cours </p>
+      <dialog id="dialog" data-modal-target="dialog">
+        <h2 class="text-center">Hello</h2>
+        <p >Voici notre team de l'enfer: </p>
+        <div class="image-ensemble">
+        <%= image_tag "insieme.png" %>
         </div>
-      <% end %>
+        <p>Avec: </p>
+        <div class="image-nous d-flex flex-column">
+          <div class="d-flex mb-4 justify-content-center">
+            <div class="mx-3">
+              <%= image_tag "Emma.png", class: "rounded-circle" %>
+              <p>Emma</p>
+            </div>
+
+            <div class="mx-3">
+              <%= image_tag "Nour.png" %>
+              <p>Nour</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <div class="mx-3">
+              <%= image_tag "Xavier.png" %>
+              <p>Xavier</p>
+            </div>
+
+            <div class="mx-3">
+              <%= image_tag "Romain.png" %>
+              <p>Romain</p>
+            </div>
+          </div>
+        </div>
+        <button data-action="click->modal#close" aria-label="close" class="x">❌</button>
+      </dialog>
+
+
+
+      <%= link_to bookings_path, class: "my-btn2" do %>
+  <div class="grid4">
+    <%= image_tag "reservation.png", alt: "reservation.png", class: "img-fluid", style: "width: 20%;" %>
+    <p style="font-weight: bold;">Vos réservations en cours </p>
+  </div>
+<% end %>
     </div>
   </div>
 </div>

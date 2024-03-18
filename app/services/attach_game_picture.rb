@@ -1,25 +1,22 @@
 require "open-uri"
 class AttachGamePicture
-#   def initialize(attributes = {})
-#     @client = OpenAI::Client.new
-#     @game = attributes[:game]
-#   end
+  def initialize(attributes = {})
+    @game = attributes[:game]
+    @api_key = ENV.fetch("GIANT_BOMB_API_KEY")
+  end
 
-#   def call
-#     get_game_picture
-#   end
+  def call
+    img = search_game(@game.english_title)
+    file = URI.open(img)
+    @game.picture.attach(io: file, filename: "#{@game.title}.jpg", content_type: "image/jpg")
+  end
 
-#   private
+  private
 
-#   def get_game_picture
-#     response = @client.images.generate(parameters: {
-#                                          prompt: "Retournes moi la pochette exacte de #{@game.title} sur #{@game.console.name}",
-#                                          size: "512x512"
-#                                        })
-
-#     url = response["data"][0]["url"]
-#     file = URI.open(url)
-
-#     @game.picture.attach(io: file, filename: "#{@game.title}_image.jpg", content_type: "image/png")
-#   end
-# end
+  def search_game(name)
+    url = "https://www.giantbomb.com/api/search/?api_key=#{@api_key}&format=json&query=#{CGI::escape(name)}&resources=game"
+    response = HTTParty.get(url)
+    data = JSON.parse(response.body)
+    data.dig("results", 0, "image", "medium_url")
+  end
+end

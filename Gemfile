@@ -5,8 +5,14 @@ ruby "3.1.2"
 #cloudinary gem for image upload
 gem "cloudinary"
 
+# http party gem for API calls
+gem "httparty"
+
 #openai
 gem "ruby-openai"
+
+# awesome print for debugging
+gem "awesome_print"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
@@ -57,6 +63,8 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "geocoder"
+gem "sidekiq", "~> 6.5.8"
+gem "sidekiq-failures", "~> 1.0"
 
 group :development, :test do
   gem "dotenv-rails"

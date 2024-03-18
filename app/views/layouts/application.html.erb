@@ -11,14 +11,16 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="<%= @fight_page ? "body2": "body1" %>">
+  <body class="<%= @fight_page ? "body2" : "body1" %><%= yield(:overflow)%>">
 
     <%= render 'shared/top' unless @hide_top %>
   <%= render "shared/flashes" %>
     <div class="container p-b">
     <%= yield %>
     </div>
-    <%= render 'shared/navbar' unless @hide_nav  %>
+    <% if user_signed_in? %>
+      <%= render 'shared/navbar' unless @hide_nav  %>
+    <% end %>
   </body>
 
 </html>

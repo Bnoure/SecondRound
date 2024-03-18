@@ -1,12 +1,13 @@
+$bg-dark-l-opacity: 0.8;
+
 .body1 {
-  background-image: url("https://static.vecteezy.com/system/resources/previews/030/314/151/large_2x/abstract-hexagon-grid-with-bright-futuristic-colors-vertical-mobile-wallpaper-ai-generated-free-photo.jpg");
+  background-image: asset-url("fond3.jpg");
+
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   backdrop-filter: brightness(0.9);
   min-height: 100vh;
-  min-width: 100wh;
-  margin-bottom: 100px;
 }
 
 $backgroundImages: (
@@ -44,4 +45,18 @@ p {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.smalltext {
+  font-size: 12px;
+  color: white;
+  padding-left: 31px;
+}
+
+.overflowHidden {
+  overflow: hidden;
+}
+
+.bg-dark-l {
+  background-color: rgba(33, 37, 41, $bg-dark-l-opacity);
 }
